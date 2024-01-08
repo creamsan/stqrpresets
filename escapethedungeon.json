@@ -178,7 +178,7 @@
             "id": 18,
             "label": "takedmg",
             "title": "",
-            "message": "/addvar key=hp -1 | /echo severity=warning The monster hits you. |\n/if left=hp right=0 rule=lte \"/setvar key=hp 0\"",
+            "message": "/addvar key=hp -1 | /echo severity=warning The monster hits you. |\n/max 0 hp | /setvar key=hp",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
