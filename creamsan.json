@@ -1,0 +1,49 @@
+{
+    "version": 2,
+    "name": "creamsan",
+    "disableSend": false,
+    "placeBeforeInput": false,
+    "injectInput": false,
+    "qrList": [
+        {
+            "id": 1,
+            "label": "enablepreset",
+            "title": "",
+            "message": "/setvar key=varname preset |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=true rule=eq \"/qr-chat-set-on {{getvar::preset}} \\| /run {{getvar::preset}}.init\"",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": true
+        },
+        {
+            "id": 2,
+            "label": "regextract",
+            "title": "",
+            "message": "/flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex ^[\\S\\s]*?{{getvar::startregex}}{{getvar::pipe}}{{getvar::endregex}}[\\S\\s]*?${{getvar::pipe}}^[\\S\\s]+ |\n/regex name=regexreplace {{getvar::tomsgprocess}}",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false
+        },
+        {
+            "id": 3,
+            "label": "isvardefined",
+            "title": "",
+            "message": "/getvar {{getvar::varname}} |\n/len {{pipe}} | /setvar key=len |\n/if left=len right=0 rule=lte else=\"/pass true\" \"/pass false\"",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false
+        }
+    ],
+    "idIndex": 0
+}
