@@ -1,3 +1,3 @@
 # stqrpresets
 
-Hello, s
+Hello
