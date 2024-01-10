@@ -126,7 +126,7 @@
             "id": 14,
             "label": "addtolorebook",
             "title": "",
-            "message": "/createentry file=\"Gacha Lolis\" key=\"{{getvar::name}}\" Name: {{getvar::name}}\nRank: {{getvar::rank}}\nDescription: {{getvar::description}}\nValue: {{getvar::value}}\n{{getvar::flavortext}}\nImage: {{getvar::image}}\nTop emojis:\n1. {{getvar::emoji1}}\n2. {{getvar::emoji2}}\n3. {{getvar::emoji3}} |\n\n/setentryfield file=\"Gacha Lolis\" uid={{getvar::uid}} field=position 3",
+            "message": "/createentry file=\"Gacha Lolis\" key=\"{{getvar::name}}\" Name: {{getvar::name}}\nRank: {{getvar::rank}}\nDescription: {{getvar::description}}\nValue: {{getvar::value}}\n{{getvar::flavortext}}\nImage: {{getvar::image}}\nTop emojis:\n1. {{getvar::emoji1}}\n2. {{getvar::emoji2}}\n3. {{getvar::emoji3}} |\n\n/findentry file=\"Gacha Lolis\" {{getvar::name}} | /setvar key=uid |\n\n/setentryfield file=\"Gacha Lolis\" uid={{getvar::uid}} field=position 3",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
