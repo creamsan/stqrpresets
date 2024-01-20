@@ -22,7 +22,7 @@
             "id": 3,
             "label": "userprocess",
             "title": "",
-            "message": "/run gachalolis.getinput |\n/if left=userinput right=pull rule=eq \"/run gachalolis.pullcommand\" |\n/if left=userinput right=render rule=eq \"/run gachalolis.renderhtml\" |\n/if left=userinput right=get rule=eq \"/run gachalolis.getcommand\" |\n/if left=userinput right=update rule=eq \"/run gachalolis.updatehtml\"",
+            "message": "/setvar key=userinput {{input}} |\n/if left=userinput right=pull rule=eq \"/run gachalolis.pullcommand\" |\n/if left=userinput right=render rule=eq \"/run gachalolis.renderhtml\" |\n/if left=userinput right=get rule=eq \"/run gachalolis.getcommand\"",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
@@ -58,19 +58,6 @@
             "executeOnChatChange": false
         },
         {
-            "id": 9,
-            "label": "getinput",
-            "title": "",
-            "message": "/setvar key=userinput {{input}}",
-            "contextList": [],
-            "preventAutoExecute": false,
-            "isHidden": true,
-            "executeOnStartup": false,
-            "executeOnUser": false,
-            "executeOnAi": false,
-            "executeOnChatChange": false
-        },
-        {
             "id": 10,
             "label": "renderhtml",
             "title": "",
@@ -100,7 +87,7 @@
             "id": 12,
             "label": "pullcommand",
             "title": "",
-            "message": "/flushvar jbout |\n/setvar key=blocktrigger true |\n/if left=lolicoins right=0 rule=lte \"/echo You don't have any LoliCoins left. \\| /abort\" |\n/setvar key=rand {{random: F,F,F,F,D,D,D,D,D,D,C,C,C,C,C,C,B,B,B,B,B,B,B,B,B,B,A,A,A,A,S,SS,SSS}} |\n/if left=rand right=F rule=eq \"/setvar key=rankdesc A profoundly retarded or disabled loli.\" |\n/if left=rand right=D rule=eq \"/setvar key=rankdesc A bad-taste loli.\" |\n/if left=rand right=C rule=eq \"/setvar key=rankdesc A loli with a twist.\" |\n/if left=rand right=B rule=eq \"/setvar key=rankdesc An ordinary cute loli.\" |\n/if left=rand right=A rule=eq \"/setvar key=rankdesc A magical or high tech loli.\" |\n/if left=rand right=S rule=eq \"/setvar key=rankdesc A mythical loli.\" |\n/if left=rand right=SS rule=eq \"/setvar key=rankdesc A loli deity.\" |\n/if left=rand right=SSS rule=eq \"/setvar key=rankdesc A cosmic entity loli.\" |\n/setvar key=jbout {{user}} pulled the lever. The rank he gets is Rank {{getvar::rand}}: {{getvar::rankdesc}} Generate the girl as if playing a gacha game. Be descriptive, creative, and humorous. Adhere to the following format in code block: ```\nRank: {{getvar::rand}}\nName: Her name\nDescription: Her appearance and personality according to her rank description\nValue: How valuable she is\nFlavor text: \"Her flavor text here\"\nImage: A brief description of her appearance only. Write in comma-separated keywords and must include her clothing, visible distinguishing features, and facial expression. Example: red dress, red hair, twintails, dragon horns, very angry\n1. Her top 1 emoji\n2. Her top 2 emoji\n3. Her top 3 emoji\n``` |\n/addvar key=lolicoins -1 |\n/max lolicoins 0 | /setvar key=lolicoins |\n/trigger",
+            "message": "/flushvar jbout |\n/setvar key=blocktrigger true |\n/if left=lolicoins right=0 rule=lte \"/echo You don't have any LoliCoins left. \\| /abort\" |\n/setvar key=rand {{random: F,F,F,F,D,D,D,D,D,D,C,C,C,C,C,C,B,B,B,B,B,B,B,B,B,B,A,A,A,A,S,SS,SSS}} |\n/if left=rand right=F rule=eq \"/setvar key=rankdesc A profoundly retarded or disabled loli.\" |\n/if left=rand right=D rule=eq \"/setvar key=rankdesc A bad-taste loli.\" |\n/if left=rand right=C rule=eq \"/setvar key=rankdesc A loli with a twist.\" |\n/if left=rand right=B rule=eq \"/setvar key=rankdesc An ordinary cute loli.\" |\n/if left=rand right=A rule=eq \"/setvar key=rankdesc A magical or high tech loli.\" |\n/if left=rand right=S rule=eq \"/setvar key=rankdesc A mythical loli.\" |\n/if left=rand right=SS rule=eq \"/setvar key=rankdesc A loli deity.\" |\n/if left=rand right=SSS rule=eq \"/setvar key=rankdesc A cosmic entity loli.\" |\n/setvar key=jbout {{user}} pulled the lever. The rank he gets is Rank {{getvar::rand}}: {{getvar::rankdesc}} Generate the girl as if playing a gacha game. Be descriptive, creative, and humorous. Adhere to the following format in code block: ```\nRank: {{getvar::rand}}\nName: Her name\nDescription: Her desc\nValue: How valuable she is\nFlavor text: \"Her flavor text here\"\nImage: Describe her appearance using only comma-separated keywords, and must include her clothing, visible features, and facial expression. Example: bright red dress, red hair, twintails, embers, black dragon horns, red eyes, fangs, very angry\n1. Her top 1 emoji\n2. Her top 2 emoji\n3. Her top 3 emoji\n``` |\n/addvar key=lolicoins -1 |\n/max lolicoins 0 | /setvar key=lolicoins |\n/trigger",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,

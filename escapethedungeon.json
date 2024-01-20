@@ -16,20 +16,22 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 3,
             "label": "userprocess",
             "title": "",
-            "message": "/run escapethedungeon.getinput |\n/addvar key=mp 1 | /min mp 10 | /setvar key=mp |\n/addvar key=hp 1 | /min hp 10 | /setvar key=hp |\n/if left=killcount right=16 rule=gte \"/setvar key=jbout They have finally escaped from the dungeon. No more monster encounters, but their story goes on. \\| /abort\" |\n/setvar key=jbout There's no monster or items for now. |\n/setvar key=tomsgprocess {{lastMessage}} |\n/run escapethedungeon.findrandomitem |\n/if left=cooldown right=0 rule=gt else=\"/run escapethedungeon.genmonster \\| /run escapethedungeon.genboss\" \"/addvar key=cooldown -1\" |\n /run escapethedungeon.getmonsterinfo |\n/if left=validmonsterinfo right=true rule=eq \"/run escapethedungeon.battleloop \\| /setvar key=cooldown {{random:0,1}}\" |\n/run escapethedungeon.getiteminfo |\n/if left=validiteminfo right=true rule=eq \"/run escapethedungeon.pickitem\" |\n/flushvar nadanada",
+            "message": "/setvar key=userinput {{input}} |\n/addvar key=mp 1 | /min mp 10 | /setvar key=mp |\n/addvar key=hp 1 | /min hp 10 | /setvar key=hp |\n/if left=killcount right=16 rule=gte \"/setvar key=jbout They have finally escaped from the dungeon. No more monster encounters, but their story goes on. \\| /abort\" |\n/setvar key=jbout There's no monster or items for now. |\n/setvar key=tomsgprocess {{lastMessage}} |\n/run escapethedungeon.findrandomitem |\n/if left=cooldown right=0 rule=gt else=\"/run escapethedungeon.genmonster \\| /run escapethedungeon.genboss\" \"/addvar key=cooldown -1\" |\n /run escapethedungeon.getmonsterinfo |\n/if left=validmonsterinfo right=true rule=eq \"/run escapethedungeon.battleloop \\| /setvar key=cooldown {{random:0,1}}\" |\n/run escapethedungeon.getiteminfo |\n/if left=validiteminfo right=true rule=eq \"/run escapethedungeon.pickitem\" |\n/flushvar nadanada",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 4,
@@ -42,7 +44,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": true,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 6,
@@ -55,20 +58,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
-        },
-        {
-            "id": 9,
-            "label": "getinput",
-            "title": "",
-            "message": "/setvar key=userinput {{input}}",
-            "contextList": [],
-            "preventAutoExecute": false,
-            "isHidden": true,
-            "executeOnStartup": false,
-            "executeOnUser": false,
-            "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 10,
@@ -81,7 +72,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 11,
@@ -94,7 +86,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 12,
@@ -107,7 +100,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 13,
@@ -120,7 +114,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 14,
@@ -133,7 +128,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 15,
@@ -146,7 +142,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 16,
@@ -159,7 +156,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 17,
@@ -172,7 +170,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 18,
@@ -185,7 +184,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 19,
@@ -198,7 +198,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 20,
@@ -211,7 +212,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 21,
@@ -224,7 +226,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 22,
@@ -237,7 +240,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 23,
@@ -250,7 +254,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 24,
@@ -263,7 +268,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 25,
@@ -276,7 +282,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 26,
@@ -289,7 +296,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 27,
@@ -302,7 +310,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 28,
@@ -315,7 +324,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 29,
@@ -328,7 +338,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 30,
@@ -341,20 +352,22 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 31,
             "label": "showendingpopup",
             "title": "",
-            "message": "/if left=mage right=fire rule=in \"/setvar key=imglink https://files.catbox.moe/zophfs.png\" |\n/if left=mage right=lightning rule=in \"/setvar key=imglink https://files.catbox.moe/wpl6x0.png\" |\n/if left=mage right=chaos rule=in \"/setvar key=imglink https://files.catbox.moe/g3kiqz.png\" |\n/if left=mage right=ice rule=in \"/setvar key=imglink https://files.catbox.moe/hj2yzu.png\" |\n\n/setvar key=jbout The way out is in sight, the final boss monster defeated. They have finally reached the end. |\n/popup <h1>Congratulations</h1>\n<font color=red><img style='width: 300px' src='{{getvar::imglink}}' alt='Image loading failed :('></font><br><br>\nYou have escaped the dungeon.<br><br>\n<hr><br><br>\nHave some SD slop. Yeah lol, sorry, not the greatest image proompter.<br>\nThanks for playing. If you've made it this far, it means the script is working as intended, I really hope so. If you encountered any problems, please let me know. Upcoming updates will probably just be bug fixes or balancing, as I don't want to add any more features.<br>\nFrom this point on you should use the normal send button on the right instead of the QR send button.<br>\nAlso, check the lorebook for items you've collected along the way. Maybe you can make use of them for your ongoing story.<br>\nThat's all, for now. Again, thank you, {{user}}.<br><br>\n<hr><br><br>",
+            "message": "/if left=mage right=fire rule=in \"/setvar key=imglink https://files.catbox.moe/zophfs.png\" |\n/if left=mage right=lightning rule=in \"/setvar key=imglink https://files.catbox.moe/wpl6x0.png\" |\n/if left=mage right=chaos rule=in \"/setvar key=imglink https://files.catbox.moe/g3kiqz.png\" |\n/if left=mage right=ice rule=in \"/setvar key=imglink https://files.catbox.moe/hj2yzu.png\" |\n\n/setvar key=jbout The way out is in sight, the final boss monster defeated. They have finally reached the end. |\n/popup <h1>Congratulations</h1>\n<font color=red><img style='width: 300px' src='{{getvar::imglink}}' alt='Image loading failed :('></font><br><br>\nYou have escaped the dungeon.<br><br>\n<hr><br><br>\nHave some SD slop. Yeah lol, sorry, not the greatest image proompter.<br>\nThanks for playing. If you've made it this far, it means that the script is working as intended, I really hope so. If you encountered any problems, please let me know. Upcoming updates will probably just be bug fixes or balancing, as I don't want to add any more features.<br>\nFrom this point on you should use the normal send button on the right instead of the QR send button.<br>\nAlso, check the lorebook for items you've collected along the way. Maybe you can make use of them for your ongoing story.<br>\nThat's all, for now. Again, thank you, {{user}}.<br><br>\n<hr><br><br>",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 32,
@@ -367,7 +380,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         }
     ],
     "idIndex": 0

@@ -35,7 +35,33 @@
             "id": 3,
             "label": "isvardefined",
             "title": "",
-            "message": "/getvar {{getvar::varname}} |\n/len {{pipe}} | /setvar key=len |\n/if left=len right=0 rule=lte else=\"/pass true\" \"/pass false\"",
+            "message": "/getvar {{getvar::varname}} |\n/len | /setvar key=len |\n/if left=len right=0 rule=lte else=\"/pass true\" \"/pass false\"",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false
+        },
+        {
+            "id": 6,
+            "label": "shuffle",
+            "title": "",
+            "message": "/len {{getvar::toshuffle}} | /setvar key=len |\n/setvar key=curridx {{getvar::len}} |\n/while left=curridx right=0 rule=neq \"/run creamsan.shuffletoloop\" |\n/pass {{getvar::toshuffle}}",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false
+        },
+        {
+            "id": 8,
+            "label": "shuffletoloop",
+            "title": "",
+            "message": "/rand from=0 to={{getvar::len}} round=floor |\n/setvar key=randidx |\n/addvar key=curridx -1 |\n/getvar index={{getvar::curridx}} toshuffle |\n/setvar key=tmp |\n/getvar index={{getvar::randidx}} toshuffle |\n/setvar key=toshuffle index={{getvar::curridx}} |\n/setvar key=toshuffle index={{getvar::randidx}} {{getvar::tmp}}",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
@@ -45,5 +71,5 @@
             "executeOnChatChange": false
         }
     ],
-    "idIndex": 5
+    "idIndex": 9
 }
