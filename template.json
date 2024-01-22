@@ -1,0 +1,62 @@
+{
+    "version": 2,
+    "name": "template",
+    "disableSend": false,
+    "placeBeforeInput": false,
+    "injectInput": false,
+    "qrList": [
+        {
+            "id": 2,
+            "label": "init",
+            "title": "",
+            "message": "/echo Initializing |",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false
+        },
+        {
+            "id": 3,
+            "label": "userprocess",
+            "title": "",
+            "message": "/setvar key=userinput {{input}} |",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false
+        },
+        {
+            "id": 4,
+            "label": "aiprocess",
+            "title": "",
+            "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": true,
+            "executeOnChatChange": false
+        },
+        {
+            "id": 5,
+            "label": "Send",
+            "title": "",
+            "message": "/run PRESETNAME.userprocess |\n/send {{getvar::userinput}}{{newline}}{{pipe}} |\n/trigger | /flushvar nadanada | /setinput",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false
+        }
+    ],
+    "idIndex": 0
+}

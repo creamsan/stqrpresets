@@ -9,14 +9,15 @@
             "id": 1,
             "label": "enablepreset",
             "title": "",
-            "message": "/setvar key=varname preset |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=true rule=eq \"/qr-chat-set-on {{getvar::preset}} \\| /run {{getvar::preset}}.init\"",
+            "message": "/setvar key=varname preset |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=true rule=eq \"/qr-chat-set-on {{getvar::preset}} \\| /run {{getvar::preset}}.init\" |\n\n/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex \\\\ |\n/regex name=regexreplace \\| |\n/setvar key=pipe",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": true
+            "executeOnChatChange": true,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 2,
@@ -29,7 +30,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 3,
@@ -42,7 +44,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 6,
@@ -55,7 +58,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 8,
@@ -68,8 +72,9 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         }
     ],
-    "idIndex": 9
+    "idIndex": 11
 }
