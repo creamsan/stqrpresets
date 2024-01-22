@@ -16,20 +16,22 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 3,
             "label": "userprocess",
             "title": "",
-            "message": "/setvar key=userinput {{input}} |\n/if left=userinput right=pull rule=eq \"/run gachalolis.pullcommand\" |\n/if left=userinput right=render rule=eq \"/run gachalolis.renderhtml\" |\n/if left=userinput right=get rule=eq \"/run gachalolis.getcommand\"",
+            "message": "/setvar key=userinput {{input}} |\n/if left=userinput right=pull rule=eq \"/run gachalolis.pullcommand\" |\n/if left=userinput right=render rule=eq \"/run gachalolis.renderhtml\" |\n/if left=userinput right=get rule=eq \"/run gachalolis.getcommand\" |\n/if left=userinput right=renderblank rule=eq \"/run gachalolis.renderhtmlblank\"",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 4,
@@ -42,7 +44,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": true,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 5,
@@ -55,7 +58,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 10,
@@ -68,7 +72,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 11,
@@ -81,7 +86,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 12,
@@ -94,7 +100,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 13,
@@ -107,7 +114,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 14,
@@ -120,8 +128,23 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
+        },
+        {
+            "id": 16,
+            "label": "renderhtmlblank",
+            "title": "",
+            "message": "/setvar key=blocktrigger true |\n/run gachalolis.getvals |\n/if left=htmlready right=false rule=eq \"/echo Loli info incomplete. \\| /abort\" |\n\n/findentry file=\"Gacha Lolis\" {{getvar::name}} | /setvar key=uid |\n/if left=uid right=0 rule=gte else=\"/run gachalolis.addtolorebook\" \"/echo Loli name already exists in lorebook.\" |\n\n/input Input image link | /setvar key=imagelink |\n\n/setvar key=html <div style='background: linear-gradient(45deg, {{getvar::color1}} 0%, {{getvar::color2}} 50%, {{getvar::color3}} 100%); border: 2px solid {{getvar::color1}}; background-size: 500% 500%; font-size: 14px; margin: 20px auto; padding: 15px; text-align: center; border-radius: 8px; animation: initial-render-shrink 2s linear, bg-animate 10s linear infinite; position: relative; max-width: 400px'>\n\n<div style='width: 100%; height: 350px; color: red; text-align: center'>\n<img style='border: 2px solid {{getvar::color1}}; border-radius: 3px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4)' src='{{getvar::imagelink}}' alt='Image loading error :('>\n</div>\n\n<img style='position: absolute; bottom: -60px; right: -35px; transform: scale(-1, -1)' src='https://files.catbox.moe/pwbovt.png' alt='border'>\n\n<img style='position: absolute; top: -5px; left: -5px; transform: scale(1, 1)' src='https://files.catbox.moe/omaule.png' alt='border'>\n\n<img style='position: absolute; top: 350px; left: 0px; transform: scale(1, 1)' src='https://files.catbox.moe/ok60ct.png' alt='ribbon'>\n\n<p style='color: {{getvar::color3}}; position: absolute; top: 15px; left: 5px; font-size: 24px; font-weight: bolder; text-shadow: -1px -1px 0 #efe7dc, 1px -1px 0 #efe7dc, -1px 1px 0 #efe7dc, 1px 1px 0 #efe7dc; animation: initial-render-shrink 1s linear 2.5s both, rank-anim 1s linear infinite 1.5s'>Rank {{getvar::rank}}</p>\n\n<p class='emoji' style='top: 25px; right: 5px'>{{getvar::emoji1}}</p>\n\n<p class='emoji' style='bottom: 25px; left: 5px'>{{getvar::emoji2}}</p>\n\n<p class='emoji' style='bottom: 25px; right: 5px'>{{getvar::emoji3}}</p>\n\n<p style='font-size: 25px; text-shadow: -1px -1px 0 #372f2f, 1px -1px 0 #372f2f, -1px 1px 0 #372f2f, 1px 1px 0 #372f2f; font-weight: bolder; animation: initial-render-grow 1s linear 2.5s both'>{{getvar::name}}</p>\n\n<p class='desc' style='animation: initial-render-grow 1s linear 3s both'>{{getvar::description}}</p>\n\n<p class='desc' style='animation: initial-render-grow 1s linear 3.25s both'>Value: {{getvar::value}}</p>\n\n<p class='desc' style='animation: initial-render-grow 1s linear 3.5s both'>{{getvar::flavortext}}</p>\n\n</div> |\n\n/send | /setvar key=htmlready false |\n/hide {{lastMessageId}} |\n/echo HTML rendered. Be sure to update her lorebook key. |\n/flushvar jbout",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         }
     ],
-    "idIndex": 15
+    "idIndex": 17
 }
