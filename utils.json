@@ -88,20 +88,6 @@
             "executeOnAi": false,
             "executeOnChatChange": false,
             "executeOnGroupMemberDraft": false
-        },
-        {
-            "id": 15,
-            "label": "OOC",
-            "title": "",
-            "message": "/input |\n/setvar key=ooc |\n/setvar key=varname ooc | /run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/abort\" |\n\n/gen lock=on (OOC: Pause the RP for now, this is an OOC query:\n{{getvar::ooc}}\nRP will resume once you've answered above.) |\n/comment",
-            "contextList": [],
-            "preventAutoExecute": false,
-            "isHidden": false,
-            "executeOnStartup": false,
-            "executeOnUser": false,
-            "executeOnAi": false,
-            "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
         }
     ],
     "idIndex": 22
