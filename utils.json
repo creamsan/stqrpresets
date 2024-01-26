@@ -79,7 +79,7 @@
             "id": 21,
             "label": "✂️lastsntnce",
             "title": "",
-            "message": "/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex \\\\ |\n/regex name=regexreplace \\| |\n/setvar key=pipe |\n\n/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex (?<=[.?!]\"?)[^.!?]+?[.!?\"]?(?=\\s*```[\\S\\s]+```${{getvar::pipe}}$) |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
+            "message": "/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex \\\\ |\n/regex name=regexreplace \\| |\n/setvar key=pipe |\n\n/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex (?<=[.?!]\"?)[^.!?]+?[.!?\")]*?(?=\\s*```[\\S\\s]+```${{getvar::pipe}}$) |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
