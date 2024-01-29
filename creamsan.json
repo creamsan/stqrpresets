@@ -51,7 +51,7 @@
             "id": 6,
             "label": "shuffle",
             "title": "",
-            "message": "/len {{getvar::toshuffle}} | /setvar key=len |\n/setvar key=curridx {{getvar::len}} |\n/while left=curridx right=0 rule=neq \"/run creamsan.shuffletoloop\" |\n/pass {{getvar::toshuffle}}",
+            "message": "/len {{getvar::arr}} | /setvar key=len |\n/setvar key=i {{getvar::len}} |\n/while left=i right=0 rule=neq \"/run creamsan.shuffletoloop\" |\n/pass {{getvar::arr}}",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
@@ -65,7 +65,35 @@
             "id": 8,
             "label": "shuffletoloop",
             "title": "",
-            "message": "/rand from=0 to={{getvar::len}} round=floor |\n/setvar key=randidx |\n/addvar key=curridx -1 |\n/getvar index={{getvar::curridx}} toshuffle |\n/setvar key=tmp |\n/getvar index={{getvar::randidx}} toshuffle |\n/setvar key=toshuffle index={{getvar::curridx}} |\n/setvar key=toshuffle index={{getvar::randidx}} {{getvar::tmp}}",
+            "message": "/rand from=0 to={{getvar::len}} round=floor |\n/setvar key=i2 |\n/addvar key=i -1 |\n/getvar index={{getvar::i}} arr |\n/setvar key=tmp |\n/getvar index={{getvar::i2}} arr |\n/setvar key=arr index={{getvar::i}} |\n/setvar key=arr index={{getvar::i2}} {{getvar::tmp}}",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
+        },
+        {
+            "id": 12,
+            "label": "pop",
+            "title": "",
+            "message": "/setvar key=i 0 |\n/setvar key=i2 0 |\n/flushvar newarr |\n/len {{getvar::arr}} |\n/while left=i right={{pipe}} rule=lt \"/run creamsan.poptoloop\" |\n/pass {{getvar::newarr}}",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
+        },
+        {
+            "id": 14,
+            "label": "poptoloop",
+            "title": "",
+            "message": "/if left=i right=topopidx rule=eq \"/getvar index={{getvar::i}} arr \\| /setvar key=popval \\|\n/addvar key=i 1 \\| /abort\" |\n\n/getvar index={{getvar::i}} arr |\n/setvar key=newarr index={{getvar::i2}} |\n/addvar key=i 1 |\n/addvar key=i2 1",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
@@ -76,5 +104,5 @@
             "executeOnGroupMemberDraft": false
         }
     ],
-    "idIndex": 11
+    "idIndex": 15
 }

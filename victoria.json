@@ -16,7 +16,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 3,
@@ -29,7 +30,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 4,
@@ -42,20 +44,22 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": true,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 5,
             "label": "Send",
             "title": "",
-            "message": "/run victoria.userprocess | /if left=blocktrigger right=true rule=eq else=\"/send {{input}}{{newline}}{{pipe}} \\| /trigger\" \"/setvar key=blocktrigger false\" | /flushvar nadanada | /setinput",
+            "message": "/run victoria.userprocess | /if left=blocktrigger right=true rule=eq else=\"/send {{getvar::userinput}}{{newline}}{{pipe}} \\| /trigger\" \"/setvar key=blocktrigger false\" | /flushvar nadanada | /setinput",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": false,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 10,
@@ -68,7 +72,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 11,
@@ -81,7 +86,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 12,
@@ -94,7 +100,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 13,
@@ -107,7 +114,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 14,
@@ -120,7 +128,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 15,
@@ -133,7 +142,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 16,
@@ -146,7 +156,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 17,
@@ -159,7 +170,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 18,
@@ -172,7 +184,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         }
     ],
     "idIndex": 0

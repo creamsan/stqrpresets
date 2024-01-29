@@ -51,7 +51,7 @@
             "id": 5,
             "label": "Send",
             "title": "",
-            "message": "/run blanche.userprocess |\n/if left=blocktrigger right=true rule=eq else=\"/send {{input}}{{newline}}{{pipe}} \\| /trigger\" \"/setvar key=blocktrigger false\" | /flushvar nadanada | /setinput",
+            "message": "/run blanche.userprocess |\n/if left=blocktrigger right=true rule=eq else=\"/send {{getvar::userinput}}{{newline}}{{pipe}} \\| /trigger\" \"/setvar key=blocktrigger false\" | /flushvar nadanada | /setinput",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": false,
