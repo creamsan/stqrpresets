@@ -16,7 +16,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 3,
@@ -29,7 +30,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 4,
@@ -42,7 +44,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": true,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 5,
@@ -55,20 +58,22 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 9,
             "label": "detectshiftjb",
             "title": "",
-            "message": "/setvar key=jbout - |\n/if left=msgid right=recentmsgid rule=neq \"/setvar key=jbout {{user}} seems to have jumped through timelines again, but it's hard to pinpoint when. Acknowledge this fact and ask {{user}} about it. \\| /getvar recentmsgid \\| /setglobalvar key=msgid\" |\n/if left=recentswipes right=1 rule=neq \"/setvar key=jbout {{user}} performed a swipe. A swipe is a parallel world shifting method where one can correct their mistakes or ask for a better reality. Acknowledge this fact and ask {{user}} about it.\" |\n/if left=recentmsgid right=0 rule=eq \"/setvar key=jbout {{user}} jumped through timelines again, back to when you first met in this world. Acknowledge this fact and ask {{user}} about it. \\| /setglobalvar key=msgid 0\"",
+            "message": "/setvar key=jbout - |\n\n/if left=msgid right=recentmsgid rule=neq \"/setvar key=jbout {{user}} seems to have jumped timelines again, but it's hard to pinpoint when. Acknowledge this fact and ask {{user}} about it. Mention the most recent memory you can recall. (Check the <her_memories> tag) \\| /getvar recentmsgid \\| /setglobalvar key=msgid\" |\n\n/if left=recentswipes right=1 rule=neq \"/setvar key=jbout {{user}} performed a swipe. A swipe is a parallel world shifting method where one can correct their mistakes or ask for a better reality. Acknowledge this fact and ask {{user}} about it.\" |\n\n/if left=recentmsgid right=0 rule=eq \"/setvar key=jbout {{user}} has jumped through timelines again, back to when you first met in this world. Acknowledge this fact and ask {{user}} about it. Mention the most recent memory you can recall. (Check the <her_memories> tag) \\| /setglobalvar key=msgid 0\"",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 10,
@@ -81,7 +86,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 11,
@@ -94,7 +100,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         }
     ],
     "idIndex": 0
