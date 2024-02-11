@@ -163,7 +163,7 @@
             "id": 14,
             "label": "genenemy",
             "title": "",
-            "message": "/getvar index={{getvar::i}} arr |\n/setvar key=dist | /setvar key=distkey {{pipe}}m |\n\n/addvar key=i 1 |\n/setvar key=enemy{{getvar::i}}dist {{getvar::dist}} |\n\n/getvar index=maxangle {{getvar::distkey}} |\n/rand from=-{{pipe}} to={{pipe}} round=round |\n/setvar key=enemy{{getvar::i}}currangle |\n\n/getvar index=maxspeed {{getvar::distkey}} |\n/rand from=-{{pipe}} to={{pipe}} round=round |\n/setvar key=enemy{{getvar::i}}speed |\n\n/setvar key=enemy{{getvar::i}}tank visible",
+            "message": "/getvar index={{getvar::i}} arr |\n/setvar key=dist | /setvar key=distkey {{pipe}}m |\n\n/addvar key=i 1 |\n/setvar key=enemy{{getvar::i}}dist {{getvar::dist}} |\n\n/getvar index=maxangle {{getvar::distkey}} |\n/setvar key=minmax |\n/rand from=-{{getvar::minmax}} to={{getvar::minmax}} round=round |\n/setvar key=enemy{{getvar::i}}currangle |\n\n/getvar index=maxspeed {{getvar::distkey}} |\n/setvar key=minmax |\n/rand from=-{{getvar::minmax}} to={{getvar::minmax}} round=round |\n/setvar key=enemy{{getvar::i}}speed |\n\n/setvar key=enemy{{getvar::i}}tank visible",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
