@@ -16,7 +16,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 3,
@@ -29,7 +30,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 4,
@@ -42,7 +44,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 5,
@@ -55,7 +58,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 6,
@@ -68,7 +72,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 7,
@@ -81,7 +86,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 8,
@@ -94,7 +100,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": true,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 9,
@@ -107,7 +114,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         },
         {
             "id": 11,
@@ -120,7 +128,8 @@
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
-            "executeOnChatChange": false
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false
         }
     ],
     "idIndex": 0
