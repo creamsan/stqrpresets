@@ -1,0 +1,16 @@
+{
+    "scriptName": "removecot",
+    "findRegex": "```\\s*<thinking>[\\S\\s]+?<\\/thinking>\\s*```|<thinking>[\\S\\s]+?<\\/thinking>",
+    "replaceString": "",
+    "trimStrings": [],
+    "placement": [
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": true,
+    "runOnEdit": false,
+    "substituteRegex": false,
+    "minDepth": null,
+    "maxDepth": null
+}

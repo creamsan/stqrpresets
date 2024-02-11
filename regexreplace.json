@@ -1,0 +1,13 @@
+{
+    "scriptName": "regexreplace",
+    "findRegex": "/{{getvar::regex}}/{{getvar::regexflags}}",
+    "replaceString": "{{getvar::toreplace}}",
+    "trimStrings": [],
+    "placement": [],
+    "disabled": false,
+    "markdownOnly": false,
+    "promptOnly": false,
+    "runOnEdit": false,
+    "substituteRegex": true,
+    "replaceStrategy": 0
+}
