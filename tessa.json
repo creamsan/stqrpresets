@@ -99,7 +99,7 @@
             "id": 12,
             "label": "getthinginfo",
             "title": "",
-            "message": "/setvar key=validinfo true |\n/setvar key=tomsgprocess {{lastMessage}} |\n/setvar key=endregex (\\n[\\S\\s]+?[:\\-\\.]\\s\\|\\n(?<=[\\S\\s]+?[:\\-\\.][\\S\\s]+)```) |\n\n/setvar key=startregex Name\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=thingname |\n/setvar key=varname thingname | /run creamsan.isvardefined |\n/setvar key=validinfo |\n/if left=validinfo right=false rule=eq \"/abort\"",
+            "message": "/setvar key=validinfo true |\n/setvar key=tomsgprocess {{lastMessage}} |\n/setvar key=endregex (\\n[\\S\\s]+?[:\\-\\.]\\s\\|\\n(?<=[\\S\\s]+?[:\\-\\.][\\S\\s]+)```) |\n\n/setvar key=startregex Name\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=thingname |\n/setvar key=varname thingname | /run creamsan.isvardefined |\n/setvar key=validinfo",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
