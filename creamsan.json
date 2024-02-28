@@ -65,7 +65,7 @@
             "id": 8,
             "label": "shuffletoloop",
             "title": "",
-            "message": "/rand from=0 to={{getvar::len}} round=floor |\n/setvar key=i2 |\n/addvar key=i -1 |\n/getvar index={{getvar::i}} arr |\n/setvar key=tmp |\n/getvar index={{getvar::i2}} arr |\n/setvar key=arr index={{getvar::i}} |\n/setvar key=arr index={{getvar::i2}} {{getvar::tmp}}",
+            "message": "/rand from=0 to={{getvar::i}} round=floor |\n/setvar key=i2 |\n/addvar key=i -1 |\n/getvar index={{getvar::i}} arr |\n/setvar key=tmp |\n/getvar index={{getvar::i2}} arr |\n/setvar key=arr index={{getvar::i}} |\n/setvar key=arr index={{getvar::i2}} {{getvar::tmp}}",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,

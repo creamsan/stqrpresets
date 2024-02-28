@@ -17,7 +17,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 5,
@@ -31,7 +32,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 7,
@@ -45,7 +47,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 9,
@@ -59,7 +62,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 17,
@@ -73,13 +77,14 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 21,
             "label": "✂️lastsntnce",
             "title": "",
-            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex (?<=[.?!]\"?)[^.!?]+?[.!?\")]*?(?=\\s*```[\\S\\s]+```$\\|$) |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
+            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex (?<=[.?!\"\\)])\\s[^.!?]+?[\".!?\\)]*?(?=\\s*```[\\S\\s]+```$\\|\\s*<!--[\\S\\s]+-->$\\|$) |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
@@ -87,8 +92,24 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
+        },
+        {
+            "id": 23,
+            "label": "❌</>",
+            "title": "",
+            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex <(?!\\!--)\\/?[\\S\\s]*?(?<!--)> |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
+            "contextList": [],
+            "preventAutoExecute": true,
+            "isHidden": false,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
-    "idIndex": 22
+    "idIndex": 24
 }
