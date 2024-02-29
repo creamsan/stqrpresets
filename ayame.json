@@ -99,7 +99,7 @@
             "id": 11,
             "label": "appendreply",
             "title": "",
-            "message": "/setvar key=startregex {{user}}:\\s[\\S\\s]*?(?={{char}}:) |\n/setvar key=endregex \\n</ |\n/findentry file=Ayamemo field=key Ayame |\n/getentryfield file=Ayamemo {{pipe}} | /setvar key=tomsgprocess |\n/run creamsan.regextract |\n/setvar key=memories |\n/setentryfield file=Ayamemo uid=0 <her_memories>\n{{getvar::memories}}\n\n{{char}}: {{lastMessage}}\n\n{{user}}: {{getvar::userinput}}\n</her_memories>",
+            "message": "/setvar key=startregex {{user}}:\\s[\\S\\s]*?(?={{char}}:) |\n/setvar key=endregex \\n</ |\n/findentry file=Ayamemo field=key Ayame |\n/setvar key=uid |\n/getentryfield file=Ayamemo {{getvar::uid}} | /setvar key=tomsgprocess |\n/run creamsan.regextract |\n/setvar key=memories |\n/setentryfield file=Ayamemo uid={{getvar::uid}} <her_memories>\n{{getvar::memories}}\n\n{{char}}: {{lastMessage}}\n\n{{user}}: {{getvar::userinput}}\n</her_memories>",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
