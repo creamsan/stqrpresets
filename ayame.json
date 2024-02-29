@@ -17,7 +17,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 3,
@@ -31,7 +32,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 4,
@@ -45,7 +47,8 @@
             "executeOnUser": false,
             "executeOnAi": true,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 5,
@@ -59,7 +62,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 9,
@@ -73,7 +77,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 10,
@@ -87,13 +92,14 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 11,
             "label": "appendreply",
             "title": "",
-            "message": "/setvar key=startregex {{user}}:\\s[\\S\\s]*?(?={{char}}:) |\n/setvar key=endregex \\n</ |\n/getentryfield file=Ayamemo 0 | /setvar key=tomsgprocess |\n/run creamsan.regextract |\n/setvar key=memories |\n/setentryfield file=Ayamemo uid=0 <her_memories>\n{{getvar::memories}}\n\n{{char}}: {{lastMessage}}\n\n{{user}}: {{getvar::userinput}}\n</her_memories>",
+            "message": "/setvar key=startregex {{user}}:\\s[\\S\\s]*?(?={{char}}:) |\n/setvar key=endregex \\n</ |\n/findentry file=Ayamemo field=key Ayame |\n/getentryfield file=Ayamemo {{pipe}} | /setvar key=tomsgprocess |\n/run creamsan.regextract |\n/setvar key=memories |\n/setentryfield file=Ayamemo uid=0 <her_memories>\n{{getvar::memories}}\n\n{{char}}: {{lastMessage}}\n\n{{user}}: {{getvar::userinput}}\n</her_memories>",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
@@ -101,7 +107,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
     "idIndex": 0

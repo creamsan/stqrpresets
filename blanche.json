@@ -17,7 +17,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 3,
@@ -31,7 +32,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 4,
@@ -45,7 +47,8 @@
             "executeOnUser": false,
             "executeOnAi": true,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 5,
@@ -59,13 +62,14 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 11,
             "label": "addcommand",
             "title": "",
-            "message": "/setvar key=blocktrigger true |\n\n/if left=traitsready right=false rule=eq \"/echo Not yet \\| /abort\" |\n/setvar key=endregex (\\n\\d\\s?[:\\-\\.]\\s\\|\\n(?<=\\d\\s?[:\\-\\.][\\S\\s]+)```) |\n/setvar key=tomsgprocess {{lastMessage}} |\n\n/setvar key=startregex (?<=```[\\S\\s]+)1\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc1 |\n/setvar key=varname newdesc1 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/setvar key=startregex (?<=```[\\S\\s]+)2\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc2 |\n/setvar key=varname newdesc2 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/setvar key=startregex (?<=```[\\S\\s]+)3\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc3 |\n/setvar key=varname newdesc3 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/if left=userinput right=1 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc1\\}\\}\" |\n/if left=userinput right=2 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc2\\}\\}\" |\n/if left=userinput right=3 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc3\\}\\}\" |\n\n/getentryfield file=Blanche field=content 0 |\n/setvar key=desc |\n/addvar key=desc , {{getvar::newdesc}} | /setentryfield file=Blanche uid=0 field=content | /echo Added: {{getvar::newdesc}} |\n/flushvar newdesc | /flushvar newdesc1 | /flushvar newdesc2 | /flushvar newdesc3 |\n/setvar key=traitsready false",
+            "message": "/setvar key=blocktrigger true |\n\n/if left=traitsready right=false rule=eq \"/echo Not yet \\| /abort\" |\n/setvar key=endregex (\\n\\d\\s?[:\\-\\.]\\s\\|\\n(?<=\\d\\s?[:\\-\\.][\\S\\s]+)```) |\n/setvar key=tomsgprocess {{lastMessage}} |\n\n/setvar key=startregex (?<=```[\\S\\s]+)1\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc1 |\n/setvar key=varname newdesc1 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/setvar key=startregex (?<=```[\\S\\s]+)2\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc2 |\n/setvar key=varname newdesc2 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/setvar key=startregex (?<=```[\\S\\s]+)3\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc3 |\n/setvar key=varname newdesc3 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/if left=userinput right=1 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc1\\}\\}\" |\n/if left=userinput right=2 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc2\\}\\}\" |\n/if left=userinput right=3 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc3\\}\\}\" |\n\n/findentry file=Blanche field=key Blanche |\n/setvar key=uid |\n/getentryfield file=Blanche field=content {{getvar::uid}} |\n/setvar key=desc |\n/addvar key=desc , {{getvar::newdesc}} |\n/findentry file=Blanche field=key Blanche |\n/setentryfield file=Blanche uid={{getvar::uid}} field=content | /echo Added: {{getvar::newdesc}} |\n/flushvar newdesc | /flushvar newdesc1 | /flushvar newdesc2 | /flushvar newdesc3 |\n/setvar key=traitsready false",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
@@ -73,7 +77,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
     "idIndex": 0
