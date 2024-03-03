@@ -6,103 +6,125 @@
     "injectInput": false,
     "qrList": [
         {
+            "id": 15,
+            "label": "Update Presets",
+            "title": "Downloads and updates all subscribed QRs.",
+            "message": "/input <h3>Enter the password you've set in your browser extension.</h3> | /setvar key=pass |\n\n/input #{{getvar::pass}}<script type=\"text/javascript\">\nsetTimeout((() => {\n\n//put json urls here\nconst QR_JSON_URLS = [\n  \"https://creamsan.neocities.org/files/presets/mskeyesv2.json\",\n  \"https://creamsan.neocities.org/files/presets/victoria.json\",\n  \"https://creamsan.neocities.org/files/presets/ayame.json\",\n  \"https://creamsan.neocities.org/files/presets/blanche.json\",\n  \"https://creamsan.neocities.org/files/presets/gachalolis.json\",\n  \"https://creamsan.neocities.org/files/presets/escapethedungeon.json\",\n  \"https://creamsan.neocities.org/files/presets/teamneko.json\",\n  \"https://creamsan.neocities.org/files/presets/battlestripsv2.json\",\n  \"https://creamsan.neocities.org/files/presets/tessa.json\",\n  \"https://creamsan.neocities.org/files/presets/sini.json\"\n];\n\n\n//essentials\n//get the popup components we can play with\nconst popup = document.querySelector(\"#dialogue_popup_holder\");\nconst popupHeader = popup.querySelector(\"#dialogue_popup_text\");\nconst popupInput = popup.querySelector(\"#dialogue_popup_input\");\nconst popupControls = popup.querySelector(\"#dialogue_popup_controls\");\nconst okButton = popupControls.querySelector(\"#dialogue_popup_ok\");\nconst cancelButton = popupControls.querySelector(\"#dialogue_popup_cancel\");\n\n//output setter\nconst setReturnValue = (val) => {\n  popupInput.value = val;\n};\n\n//hide/show popup elems - only select: popupHeader, popupInput, okButton, cancelButton\nconst hidePopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"hidden\"\n    elem.style.position = \"absolute\"\n  })\n};\nconst showPopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"visible\"\n    elem.style.position = \"static\"\n  })\n};\n\nconst main = () => {\n  hidePopupElems([popupInput, okButton, cancelButton]);\n\n  update();\n\n  okButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n  cancelButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n};\n\n//CREDITS to stscriptanon for providing the quick import code: https://rentry.org/stscript\nasync function update() {\n  /**\n   *  DO NOT FUCK AROUND WITH THE STUFF BELOW\n   *  UNLESS YOU KNOW WHAT YOU ARE DOING\n   */\n\n  /**\n   * Loads SillyTavern QuickReply API instance\n   *\n   * @returns {Promise<QuickReplyApi>}\n   */\n  const loadQrApi = async () => {\n    const { quickReplyApi } = await import('./scripts/extensions/quick-reply/index.js');\n    return quickReplyApi;\n  }\n\n  /**\n   * Fetches JSON object from a given URL\n   *\n   * @param {string} url - The URL to get the JSON from\n   *\n   * @returns {Promise<object>} - The parsed Object\n   */\n  const fetchJson = async (url) => {\n    const corsProxyUrl = \"https://corsproxy.io/?\";\n    const response = await fetch(corsProxyUrl + url);\n\n    return await response.json();\n  }\n\n  /**\n   * Update a QuickReply withing a QuickReplySet;\n   * This will overwrite the set\n   *\n   * @param {QuickReplyApi} api - The ST QR API instance\n   * @param {QuickReplySet} set - The QuickReplySet in which to update the QuickReply\n   * @param {QuickReply} qr - The QuickReply data to update with\n   *\n   * @returns {Promise<void>}\n   */\n  const updateQuickReply = async (api, set, qr) => {\n    console.log(\"Updating existing qr\", qr, \"in set\", set);\n    api.updateQuickReply(set.name, qr.label, { ...qr });\n  };\n\n  /**\n   * Create a QuickReply within a QuickReplySet\n   *\n   * @param {QuickReplyApi} api - The ST QR API instance\n   * @param {QuickReplySet} set - The QuickReplySet in which to create the QuickReply\n   * @param {QuickReply} qr - The QuickReply to create\n   *\n   * @returns {Promise<void>}\n   */\n  const createQuickReply = (api, set, qr) => {\n    console.log(\"Creating new qr\", qr, \"in set\", set);\n    api.createQuickReply(set.name, qr.label, { ...qr });\n  };\n\n  /**\n   * Update an already existing QuickReplySet;\n   * This will overwrite the qr\n   *\n   * @param {QuickReplyApi} api - The ST QR API instance\n   * @param {QuickReplySet} set - The already existing QuickReplySet\n   * @param {object} data - The data to update the set with\n   *\n   * @returns {Promise<void>}\n   */\n  const updateQuickReplySet = async (api, set, data) => {\n    console.log(\"Updating set\", set, data);\n\n    await api.updateSet(set.name, { ...data });\n\n    for (const qr of data.qrList) {\n      const existingQr = await api.getQrByLabel(set.name, qr.label);\n\n      if (existingQr) {\n          await updateQuickReply(api, set, qr);\n      } else {\n          await createQuickReply(api, set, qr);\n      }\n    }\n  }\n\n  /**\n   * Create a new QuickReplySet\n   *\n   * @param {QuickReplyApi} api - The ST QR API instance\n   * @param {object} data - The data to create the set with\n   *\n   * @returns {Promise<void>}\n   */\n  const createQuickReplySet = async (api, data) => {\n    console.log(\"Creating new set\", data);\n\n    const set = await api.createSet(data.name);\n    return updateQuickReplySet(api, set, data);\n  }\n\n  // Main\n  const api = await loadQrApi();\n\n  for (const url of QR_JSON_URLS) {\n    console.log(\"Loading\", url);\n\n    try {\n      const data = await fetchJson(url);\n      const set = await api.getSetByName(data.name);\n\n      if (set) {\n          await updateQuickReplySet(api, set, data);\n      } else {\n          await createQuickReplySet(api, data);\n      }\n    } catch (e) {\n      console.error(\"Failed to load\", url, e);\n    }\n  }\n\n  console.log(\"Done\");\n  setReturnValue(\"Update completed. Check the console (F12) for more details.\");\n  showPopupElems([okButton])\n}\n\nmain();\n\n})(), 0);\n</script>\n\n<h3>Updating...</h3>\n<img src=\"https://files.catbox.moe/k5k7m6.png\" alt=\"Image here\">\n<h3>Uncheck the Buttons toggle to hide the Update button, you can uncheck it to update later. Reload ST after updating.</h3>\n\n|\n\n/echo {{pipe}}",
+            "contextList": [],
+            "preventAutoExecute": true,
+            "isHidden": false,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
+        },
+        {
             "id": 1,
             "label": "enablepreset",
             "title": "",
             "message": "/setvar key=varname preset |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=true rule=eq \"/qr-chat-set-on {{getvar::preset}} \\| /run {{getvar::preset}}.init\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": true,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
-            "id": 2,
+            "id": 3,
             "label": "regextract",
             "title": "",
             "message": "/flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex ^[\\S\\s]*?{{getvar::startregex}}\\|{{getvar::endregex}}[\\S\\s]*?$\\|^[\\S\\s]+ |\n/regex name=regexreplace {{getvar::tomsgprocess}}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
-            "id": 3,
+            "id": 5,
             "label": "isvardefined",
             "title": "",
             "message": "/getvar {{getvar::varname}} |\n/len | /setvar key=len |\n/if left=len right=0 rule=lte else=\"/pass true\" \"/pass false\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
-            "id": 6,
+            "id": 7,
             "label": "shuffle",
             "title": "",
             "message": "/len {{getvar::arr}} | /setvar key=len |\n/setvar key=i {{getvar::len}} |\n/while left=i right=0 rule=neq \"/run creamsan.shuffletoloop\" |\n/pass {{getvar::arr}}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
-            "id": 8,
+            "id": 9,
             "label": "shuffletoloop",
             "title": "",
             "message": "/rand from=0 to={{getvar::i}} round=floor |\n/setvar key=i2 |\n/addvar key=i -1 |\n/getvar index={{getvar::i}} arr |\n/setvar key=tmp |\n/getvar index={{getvar::i2}} arr |\n/setvar key=arr index={{getvar::i}} |\n/setvar key=arr index={{getvar::i2}} {{getvar::tmp}}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
-            "id": 12,
+            "id": 11,
             "label": "pop",
             "title": "",
             "message": "/setvar key=i 0 |\n/setvar key=i2 0 |\n/flushvar newarr |\n/len {{getvar::arr}} |\n/while left=i right={{pipe}} rule=lt \"/run creamsan.poptoloop\" |\n/pass {{getvar::newarr}}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
-            "id": 14,
+            "id": 13,
             "label": "poptoloop",
             "title": "",
             "message": "/if left=i right=topopidx rule=eq \"/getvar index={{getvar::i}} arr \\| /setvar key=popval \\|\n/addvar key=i 1 \\| /abort\" |\n\n/getvar index={{getvar::i}} arr |\n/setvar key=newarr index={{getvar::i2}} |\n/addvar key=i 1 |\n/addvar key=i2 1",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
-    "idIndex": 15
+    "idIndex": 18
 }

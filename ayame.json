@@ -6,12 +6,12 @@
     "injectInput": false,
     "qrList": [
         {
-            "id": 2,
+            "id": 1,
             "label": "init",
             "title": "",
             "message": "/echo Initializing",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -26,7 +26,7 @@
             "title": "",
             "message": "/setvar key=userinput {{input}} |\n/run ayame.updatevars |\n/run ayame.appendreply |\n/run ayame.detectshiftjb |\n/flushvar nadanada",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -36,12 +36,12 @@
             "automationId": ""
         },
         {
-            "id": 4,
+            "id": 5,
             "label": "aiprocess",
             "title": "",
             "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n/run ayame.updatevars |\n/addglobalvar key=msgid 2",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -51,12 +51,12 @@
             "automationId": ""
         },
         {
-            "id": 5,
+            "id": 7,
             "label": "Send",
             "title": "",
             "message": "/run ayame.userprocess |\n/send {{getvar::userinput}}{{newline}}{{pipe}} |\n/trigger | /flushvar nadanada | /setinput",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": false,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -71,22 +71,7 @@
             "title": "",
             "message": "/setvar key=jbout - |\n\n/if left=msgid right=recentmsgid rule=neq \"/setvar key=jbout {{user}} seems to have jumped timelines again, but it's hard to pinpoint when. Acknowledge this fact and ask {{user}} about it. Mention the most recent memory you can recall. (Check the <her_memories> tag) \\| /getvar recentmsgid \\| /setglobalvar key=msgid\" |\n\n/if left=recentswipes right=1 rule=neq \"/setvar key=jbout {{user}} performed a swipe. A swipe is a parallel world shifting method where one can correct their mistakes or ask for a better reality. Acknowledge this fact and ask {{user}} about it.\" |\n\n/if left=recentmsgid right=0 rule=eq \"/setvar key=jbout {{user}} has jumped through timelines again, back to when you first met in this world. Acknowledge this fact and ask {{user}} about it. Mention the most recent memory you can recall. (Check the <her_memories> tag) \\| /setglobalvar key=msgid 0\"",
             "contextList": [],
-            "preventAutoExecute": false,
-            "isHidden": true,
-            "executeOnStartup": false,
-            "executeOnUser": false,
-            "executeOnAi": false,
-            "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false,
-            "automationId": ""
-        },
-        {
-            "id": 10,
-            "label": "updatevars",
-            "title": "",
-            "message": "/setvar key=recentswipes {{lastSwipeId}} |\n/setvar key=recentmsgid {{lastMessageId}}",
-            "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -97,11 +82,26 @@
         },
         {
             "id": 11,
+            "label": "updatevars",
+            "title": "",
+            "message": "/setvar key=recentswipes {{lastSwipeId}} |\n/setvar key=recentmsgid {{lastMessageId}}",
+            "contextList": [],
+            "preventAutoExecute": true,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
+        },
+        {
+            "id": 13,
             "label": "appendreply",
             "title": "",
             "message": "/setvar key=startregex {{user}}:\\s[\\S\\s]*?(?={{char}}:) |\n/setvar key=endregex \\n</ |\n/findentry file=Ayamemo field=key Ayame |\n/setvar key=uid |\n/getentryfield file=Ayamemo {{getvar::uid}} | /setvar key=tomsgprocess |\n/run creamsan.regextract |\n/setvar key=memories |\n/setentryfield file=Ayamemo uid={{getvar::uid}} <her_memories>\n{{getvar::memories}}\n\n{{char}}: {{lastMessage}}\n\n{{user}}: {{getvar::userinput}}\n</her_memories>",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -111,5 +111,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 0
+    "idIndex": 14
 }
