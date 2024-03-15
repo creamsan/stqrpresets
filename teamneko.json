@@ -17,7 +17,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 3,
@@ -31,7 +32,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 4,
@@ -45,7 +47,8 @@
             "executeOnUser": false,
             "executeOnAi": true,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 5,
@@ -59,7 +62,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 6,
@@ -73,7 +77,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 8,
@@ -87,7 +92,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 10,
@@ -101,7 +107,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 20,
@@ -115,7 +122,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 22,
@@ -129,7 +137,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 12,
@@ -143,7 +152,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 16,
@@ -157,7 +167,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 14,
@@ -171,7 +182,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 24,
@@ -185,7 +197,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 26,
@@ -199,7 +212,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 28,
@@ -213,7 +227,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 30,
@@ -227,7 +242,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 34,
@@ -241,7 +257,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 38,
@@ -255,7 +272,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 40,
@@ -269,7 +287,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
     "idIndex": 41

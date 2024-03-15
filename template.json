@@ -17,7 +17,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 3,
@@ -31,7 +32,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 4,
@@ -45,7 +47,8 @@
             "executeOnUser": false,
             "executeOnAi": true,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 5,
@@ -59,13 +62,14 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         },
         {
             "id": 6,
             "label": "js",
             "title": "",
-            "message": "/input #{{getvar::pass}}<script type=\"text/javascript\">\nsetTimeout(() => {\n\n//essentials\n//get the popup components we can play with\nconst popup = document.querySelector(\"#dialogue_popup_holder\");\nconst popupHeader = popup.querySelector(\"#dialogue_popup_text\");\nconst popupInput = popup.querySelector(\"#dialogue_popup_input\");\nconst popupControls = popup.querySelector(\"#dialogue_popup_controls\");\nconst okButton = popupControls.querySelector(\"#dialogue_popup_ok\");\nconst cancelButton = popupControls.querySelector(\"#dialogue_popup_cancel\");\n\n//output setter\nconst setReturnValue = (val) => {\n  popupInput.value = val;\n};\n\n//hide/show popup elems - only select: popupHeader, popupInput, okButton, cancelButton\nconst hidePopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"hidden\"\n    elem.style.position = \"absolute\"\n  })\n};\nconst showPopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"visible\"\n    elem.style.position = \"static\"\n  })\n};\n\nconst main = () => {\n  hidePopupElems([popupInput]);\n\n  okButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n  cancelButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n};\n\nmain();\n\n}, 0);\n</script>\n",
+            "message": "/input #{{getvar::pass}}<script type=\"text/javascript\">\n(() => {setTimeout(() => {\n\n//essentials\n//get the popup components we can play with\nconst popup = document.querySelector(\"#dialogue_popup_holder\");\nconst popupHeader = popup.querySelector(\"#dialogue_popup_text\");\nconst popupInput = popup.querySelector(\"#dialogue_popup_input\");\nconst popupControls = popup.querySelector(\"#dialogue_popup_controls\");\nconst okButton = popupControls.querySelector(\"#dialogue_popup_ok\");\nconst cancelButton = popupControls.querySelector(\"#dialogue_popup_cancel\");\n\n//output setter\nconst setReturnValue = (val) => {\n  popupInput.value = val;\n};\n\n//hide/show popup elems - only select: popupHeader, popupInput, okButton, cancelButton\nconst hidePopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"hidden\"\n    elem.style.position = \"absolute\"\n  })\n};\nconst showPopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"visible\"\n    elem.style.position = \"static\"\n  })\n};\n\nconst main = () => {\n  hidePopupElems([popupInput]);\n\n  okButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n  cancelButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n};\n\nmain();\n\n}, 0)})();\n</script>\n",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": true,
@@ -73,7 +77,8 @@
             "executeOnUser": false,
             "executeOnAi": false,
             "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
     "idIndex": 7
