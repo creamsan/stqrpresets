@@ -99,7 +99,7 @@
             "id": 23,
             "label": "❌</>",
             "title": "",
-            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex <(?!\\!--\\|\\/?thinking)\\/?[\\S\\s]*?>\\|\\[.*?\\] |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
+            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex <(?!\\!--\\|\\/?thinking)\\/?[\\S\\s]*?>\\|\\[.*?\\]\\|\\* |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
