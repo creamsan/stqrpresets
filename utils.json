@@ -8,7 +8,7 @@
         {
             "id": 1,
             "label": "User",
-            "title": "",
+            "title": "Test send",
             "message": "/setvar key=varname preset |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=true rule=eq else=\"/setvar key=userinput {{input}} \\| /flushvar nadanada\" \"/run {{getvar::preset}}.userprocess\" |\n/setvar key=append |\n/if left=blocktrigger right=true rule=eq \"/setvar key=blocktrigger false \\| /abort\" |\n/send {{getvar::userinput}}{{newline}}{{getvar::append}} |\n/flushvar nadanada | /setinput",
             "contextList": [],
             "preventAutoExecute": false,
@@ -23,7 +23,7 @@
         {
             "id": 5,
             "label": "Char",
-            "title": "",
+            "title": "Test char send",
             "message": "/run {{getvar::preset}}.aiprocess |\n/sendas name=\"{{char}}\" {{input}} |\n/flushvar nadanada | /setinput",
             "contextList": [],
             "preventAutoExecute": false,
@@ -37,7 +37,7 @@
         },
         {
             "id": 7,
-            "label": "listvar",
+            "label": "📜",
             "title": "",
             "message": "/listvar",
             "contextList": [],
@@ -52,8 +52,8 @@
         },
         {
             "id": 9,
-            "label": "❌swipe",
-            "title": "",
+            "label": "❌↔️",
+            "title": "Delete current swipe",
             "message": "/delswipe",
             "contextList": [],
             "preventAutoExecute": false,
@@ -67,8 +67,8 @@
         },
         {
             "id": 17,
-            "label": "❌msg",
-            "title": "",
+            "label": "❌🗨️",
+            "title": "Delete message",
             "message": "/buttons labels=[\"prev\",\"last\"] Delete which message? | /setvar key=del |\n/if left=del right=prev rule=eq \"/sub \\{\\{lastMessageId\\}\\} 1 \\| /cut \\{\\{pipe\\}\\}\" |\n/if left=del right=last rule=eq \"/cut \\{\\{lastMessageId\\}\\}\"",
             "contextList": [],
             "preventAutoExecute": true,
@@ -82,9 +82,9 @@
         },
         {
             "id": 21,
-            "label": "✂️lastsntnce",
-            "title": "",
-            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex (?<=[.?!\"\\)])\\s[^.!?]+?[\".!?\\)]*?(?=\\s*```[\\S\\s]+?```$\\|\\s*<!--[\\S\\s]+?-->$\\|$) |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
+            "label": "✂.?!",
+            "title": "Deletes the last sentence. Makes orig backup.",
+            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex (?<=[.?!\"\\)])\\s[^.!?]+?[\".!?\\)]*?(?=\\s*```[\\S\\s]+?```$\\|\\s*<!--[\\S\\s]+?-->$\\|\\[[\\S\\s]*?\\]\\(#'[\\S\\s]+?'\\)\\|$) |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
@@ -98,8 +98,8 @@
         {
             "id": 23,
             "label": "❌</>",
-            "title": "",
-            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex <(?!\\!--\\|\\/?thinking)\\/?[\\S\\s]*?>\\|\\[.*?\\]\\|\\* |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
+            "title": "Wipes out tags, asterisks, and brackets. Makes orig backup.",
+            "message": "/hide {{lastMessageId}} |\n/flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex <(?!\\!--\\|\\/?thinking)\\/?[\\S\\s]*?>\\|\\[.*?\\](?!\\()\\|\\* |\n/regex name=regexreplace {{lastMessage}} |\n/sendas name=\"{{char}}\" {{pipe}}",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
