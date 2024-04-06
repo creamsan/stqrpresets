@@ -339,7 +339,7 @@
             "id": 28,
             "label": "selectweap",
             "title": "",
-            "message": "/if left=action right=EquipLeft rule=eq else=\"/setvar key=weap rweap\" \"/setvar key=weap lweap\" |\n\n/setvar index=name key={{getvar::weap}} {{getvar::itemname}} |\n/setvar index=elem key={{getvar::weap}} {{getvar::itemelem}} |\n/setvar index=cond key={{getvar::weap}} {{getvar::itemcond}} |\n\n/getvar index=name {{getvar::weap}} | /setvar key=tocolor |\n/getvar index=elem {{getvar::weap}} | /setvar key=element |\n/run escapethedungeon.colorize | /setvar key={{getvar::weap}}name {{getvar::element}} |\n\n/echo severity=success Equipped new weapon! |\n/flushvar weap",
+            "message": "/if left=action right=EquipLeft rule=eq else=\"/setvar key=weap rweap\" \"/setvar key=weap lweap\" |\n\n/setvar index=name key={{getvar::weap}} {{getvar::itemname}} |\n/setvar index=elem key={{getvar::weap}} {{getvar::itemelem}} |\n/setvar index=cond key={{getvar::weap}} {{getvar::itemcond}} |\n\n/getvar index=name {{getvar::weap}} | /setvar key=tocolor |\n/getvar index=elem {{getvar::weap}} | /setvar key=element |\n/run escapethedungeon.colorize | /setvar key=\"{{getvar::weap}}name\" {{getvar::element}} |\n\n/echo severity=success Equipped new weapon! |\n/flushvar weap",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,
