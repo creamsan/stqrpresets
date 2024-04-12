@@ -83,7 +83,7 @@
         {
             "id": 21,
             "label": "✂.?!",
-            "title": "Delete last sentence. Makes orig backup.",
+            "title": "Delete last sentence. Saves orig message.",
             "message": "/hide {{lastMessageId}} | /flushvar toreplace |\n/setvar key=regexflags i |\n/setvar key=regex (?<=[.?!\\)`>]\\|(?<!\\s)\")\\s+([^.!?\\)`>]\\|(?<![^\\s])\")*?[\".!?\\)]*?(?=\\s*$\\|\\s*```[\\S\\s]+?```\\s*$\\|\\s*<[\\S\\s]+?>\\s*$\\|\\s*\\[[\\S\\s]*?\\]\\(#'[\\S\\s]+?'\\)\\s*$) |\n/regex name=regexreplace {{lastMessage}} |\n/setvar key=msg |\n\n/len {{char}} |\n/if left={{pipe}} rule=lte right=0 else=\"/setvar key=char \\{\\{char\\}\\} \\| /sendas name=\\{\\{getvar::char\\}\\} \\{\\{getvar::msg\\}\\}\"\n\"/comment \\{\\{getvar::msg\\}\\}\"",
             "contextList": [],
             "preventAutoExecute": true,
@@ -96,10 +96,10 @@
             "automationId": ""
         },
         {
-            "id": 33,
-            "label": "❌</>",
-            "title": "Wipe out <tags>, [bracketed messages (not arr representations)], and asterisks.",
-            "message": "/hide {{lastMessageId}} | /flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex <(?!\\!--\\|\\/?thinking)\\/?[\\S\\s]*?>\\|(?<![:\\-=]\\s)\\[[\\S\\s]*?\\](?!\\()\\|\\* |\n/regex name=regexreplace {{lastMessage}} |\n/setvar key=msg |\n\n/len {{char}} |\n/if left={{pipe}} rule=lte right=0 else=\"/setvar key=char \\{\\{char\\}\\} \\| /sendas name=\\{\\{getvar::char\\}\\} \\{\\{getvar::msg\\}\\}\"\n\"/comment \\{\\{getvar::msg\\}\\}\"",
+            "id": 35,
+            "label": "❌🫄",
+            "title": "Remove <tags>, [bracketed messages], and asterisks. Saves orig message.",
+            "message": "/hide {{lastMessageId}} | /flushvar toreplace |\n/setvar key=regexflags gi |\n/setvar key=regex <(?!\\!--\\|\\/?thinking\\|\\/?meter\\|\\/?progress\\|\\/?data)\\/?[\\S\\s]*?>\\|(?<![:\\-=]\\s)\\[[\\S\\s]*?\\](?!\\()\\|\\*\\|(?<=\\n)[^\\n\\S]+(?!\\n\\n[^\\s]) |\n/regex name=regexreplace {{lastMessage}} |\n/setvar key=msg |\n\n/setvar key=regex (?<=[^\\s]\\n\\n)\\n+ |\n/regex name=regexreplace {{getvar::msg}} |\n/setvar key=msg |\n\n/len {{char}} |\n/if left={{pipe}} rule=lte right=0 else=\"/setvar key=char \\{\\{char\\}\\} \\| /sendas name=\\{\\{getvar::char\\}\\} \\{\\{getvar::msg\\}\\}\"\n\"/comment \\{\\{getvar::msg\\}\\}\"",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
@@ -113,8 +113,8 @@
         {
             "id": 27,
             "label": "🦖",
-            "title": "Replace words/phrases. Makes backup orig.",
-            "message": "/setvar key=thesaurus wanton\\|carnal = {{random:shameless,lewd,sensuous,lustful}}\ngirth\\|manhood\\|shaft\\|length\\|\\bmember\\b\\|\\brod\\b\\|hardness = {{random:cock,penis,dick}}\nlanguid = {{random:lazy,slow}}\n\\blithe\\b = {{random:agile,slim}}\nsaunter\\|sashay = stroll\ncore\\|heat\\b\\|slit\\b\\|bare sex\\|folds\\|nethers?\\|depths\\|womanhood\\|wetness\\|petals\\|lower lips = {{random:vagina,pussy,cunt,cunny}}\nstud\\b = {{random:handsome,lover boy,cutie}}\ncoy\\b = {{random:shy,timid,bashful}}\n(ridge\\|strain).{1,10}arousal = {{random:erection,bulge}}\ndigit\\b = finger\nrivulet = small stream\nseed\\b = {{random:jizz,cum}}\nconspiratorial = {{random:secretive,scheming}}\npet\\b = bitch\n\\borb\\b = eye\n(heart, \\|mind, )?body,? and soul = {{random:wholly,entirely,fully}}\npearl\\b = {{random:clit,clitoris}}\n\\bbud\\b = nipple\nministration\\b = {{random:stimulating,arousing,erotic}} touch\nministrations = {{random:stimulating,arousing,erotic}} touches\ntestament = {{random:evidence,proof}}\n(something )?uniquely [a-z]+ = something {{random:smelly,stinky}}\npalpable = {{random:perceptible,noticeable,evident}}\na ([a-z]+ )?mix(ture)? of = {{random:both,a combination}} of\nhalf-lidded = {{random:half-closed,relaxed,aroused,erotic}}\npool.{1,15}belly = {{random:heighten,intensify,build up,escalate}}\n(that )?fill.{1,15} [a-z\\s]{1,20} = {{random:diffuse,disperse}}\n\n{{// something you want to remove here. This entry must be the last }}\ncalloused \\|kiss-(bruised\\|swollen) \\|predatory \\| wickedly\\| slyly\\|chestnut \\|emerald \\|fiery \\|dusky \\| darkly = \n\n|\n\n/setvar key=msg {{lastMessage}} |\n/setvar key=tomsgprocess {{getvar::thesaurus}} |\n/setvar key=looping true |\n/while left=looping rule=eq right=true \"/run utils.thesaurusreplace\" |\n\n/hide {{lastMessageId}} |\n/len {{char}} |\n/if left={{pipe}} rule=lte right=0 else=\"/setvar key=char \\{\\{char\\}\\} \\| /sendas name=\\{\\{getvar::char\\}\\} \\{\\{getvar::msg\\}\\}\"\n\"/comment \\{\\{getvar::msg\\}\\}\"",
+            "title": "Replace words/phrases. Saves orig message.",
+            "message": "/setvar key=thesaurus wanton\\|carnal = {{random:shameless,lewd,sensuous,lustful}}\ngirth\\|manhood\\|shaft\\|length\\|\\bmember\\b\\|\\brod\\b\\|hardness = {{random:cock,penis,dick}}\nlanguid = {{random:lazy,slow}}\n\\blithe\\b = {{random:agile,slim}}\nsaunter\\|sashay = stroll\ncore\\|heat\\b\\|slit\\b\\|bare sex\\|folds\\|nethers?\\|depths\\|womanhood\\|wetness\\|petals\\|lower lips = {{random:vagina,pussy,cunt,cunny}}\nstud\\b = {{random:handsome,lover boy,cutie}}\ncoy\\b = {{random:shy,timid,bashful}}\n(ridge\\|strain).{1,10}arousal = {{random:erection,bulge}}\ndigit\\b = finger\nrivulet = small stream\nseed\\b = {{random:jizz,cum}}\nconspiratorial = {{random:secretive,scheming}}\npet\\b = bitch\n\\borb\\b = eye\n(heart, \\|mind, )?body,? and soul = {{random:wholly,entirely,fully}}\npearl\\b = {{random:clit,clitoris}}\n\\bbud\\b = nipple\nministration\\b = {{random:stimulating,arousing,erotic}} touch\nministrations = {{random:stimulating,arousing,erotic}} touches\ntestament = {{random:evidence,proof}}\n(something )?uniquely [a-z]+ = something {{random:smelly,stinky}}\npalpable = {{random:perceptible,noticeable,evident}}\na ([a-z]+ )?mix(ture)? of = {{random:both,a combination}} of\nhalf-lidded = {{random:half-closed,relaxed,aroused,erotic}}\npool.{1,15}belly = {{random:heighten,intensify,build up,escalate}}\n(that )?fill.{1,15} [a-z\\s]{1,20} = {{random:diffuse,disperse}}\n\n{{// something you want to remove here. This entry must be the last }}\ncalloused \\|bruising (?=kiss)\\|kiss-(bruised\\|swollen) \\|predatory \\| wickedly\\| slyly\\|chestnut \\|emerald \\|fiery \\|dusky \\| darkly = \n\n|\n\n/setvar key=msg {{lastMessage}} |\n/setvar key=tomsgprocess {{getvar::thesaurus}} |\n/setvar key=looping true |\n/while left=looping rule=eq right=true \"/run utils.thesaurusreplace\" |\n\n/hide {{lastMessageId}} |\n/len {{char}} |\n/if left={{pipe}} rule=lte right=0 else=\"/setvar key=char \\{\\{char\\}\\} \\| /sendas name=\\{\\{getvar::char\\}\\} \\{\\{getvar::msg\\}\\}\"\n\"/comment \\{\\{getvar::msg\\}\\}\"",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
@@ -141,5 +141,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 34
+    "idIndex": 36
 }
