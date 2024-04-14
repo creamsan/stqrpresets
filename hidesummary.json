@@ -1,6 +1,6 @@
 {
     "scriptName": "hidesummary",
-    "findRegex": "/^<details>\\s*<summary>[\\S\\s]+<\\/summary>\\s*|<\\/details>\\s*$/gi",
+    "findRegex": "/^<details>\\s*<summary>[\\S\\s]+?<\\/summary>\\s*|<\\/details>\\s*$/gi",
     "replaceString": "",
     "trimStrings": [],
     "placement": [
