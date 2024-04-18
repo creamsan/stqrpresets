@@ -39,7 +39,7 @@
             "id": 4,
             "label": "aiprocess",
             "title": "",
-            "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n/run victoria.getaskedgift",
+            "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n\n/pass ... |\n/if left={{lastMessage}} rule=eq right={{pipe}} \"/abort\" |\n\n/run victoria.getaskedgift",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,

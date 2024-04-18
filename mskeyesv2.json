@@ -99,7 +99,7 @@
             "id": 8,
             "label": "aiprocess",
             "title": "",
-            "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n/run mskeyesv2.gettime | /setvar key=prev",
+            "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n\n/pass ... |\n/if left={{lastMessage}} rule=eq right={{pipe}} \"/abort\" |\n\n/run mskeyesv2.gettime | /setvar key=prev",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,

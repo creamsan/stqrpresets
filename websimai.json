@@ -39,7 +39,7 @@
             "id": 4,
             "label": "aiprocess",
             "title": "",
-            "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n\n/delay 50 |\n/run websimai.hastextform |\n/if left={{pipe}} rule=eq right=false \"/run websimai.debloathtml\"",
+            "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n\n/pass ... |\n/if left={{lastMessage}} rule=eq right={{pipe}} \"/abort\" |\n\n/run websimai.hastextform |\n/if left={{pipe}} rule=eq right=false \"/run websimai.debloathtml\"",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": true,
@@ -96,7 +96,7 @@
             "automationId": ""
         },
         {
-            "id": 16,
+            "id": 18,
             "label": "hastextform",
             "title": "",
             "message": "/setvar key=startregex <summary> |\n/setvar key=endregex </summary> |\n/setvar key=tomsgprocess {{lastMessage}} |\n\n/run creamsan.regextract |\n/if left={{pipe}} rule=in right=\"text form\" else=\"/pass false\" \"/pass true\"",
@@ -111,5 +111,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 17
+    "idIndex": 19
 }

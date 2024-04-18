@@ -24,22 +24,7 @@
             "id": 5,
             "label": "Char",
             "title": "Test char send",
-            "message": "/run {{getvar::preset}}.aiprocess |\n/sendas name=\"{{char}}\" {{input}} |\n/flushvar nadanada | /setinput",
-            "contextList": [],
-            "preventAutoExecute": false,
-            "isHidden": false,
-            "executeOnStartup": false,
-            "executeOnUser": false,
-            "executeOnAi": false,
-            "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false,
-            "automationId": ""
-        },
-        {
-            "id": 7,
-            "label": "📜",
-            "title": "",
-            "message": "/listvar",
+            "message": "/setvar key=varname preset |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=true rule=eq else=\"/pass {{char}} \\| /sendas name=\\{\\{pipe\\}\\} {{input}} \\| /flushvar nadanada\" \"/pass {{char}} \\| /sendas name=\\{\\{pipe\\}\\} \\{\\{input\\}\\}\" |\n/flushvar nadanada | /setinput",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": false,
@@ -139,7 +124,37 @@
             "executeOnChatChange": false,
             "executeOnGroupMemberDraft": false,
             "automationId": ""
+        },
+        {
+            "id": 7,
+            "label": "📜",
+            "title": "",
+            "message": "/listvar",
+            "contextList": [],
+            "preventAutoExecute": false,
+            "isHidden": false,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
+        },
+        {
+            "id": 39,
+            "label": "🗑️",
+            "title": "Clear msg box",
+            "message": "/flushvar nadanada | /setinput",
+            "contextList": [],
+            "preventAutoExecute": true,
+            "isHidden": false,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
-    "idIndex": 38
+    "idIndex": 40
 }
