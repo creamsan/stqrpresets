@@ -1,6 +1,6 @@
 {
     "scriptName": "removecot",
-    "findRegex": "```\\s*<thinking>[\\S\\s]+?<\\/thinking>\\s*```|<thinking>[\\S\\s]+?<\\/thinking>",
+    "findRegex": "/```\\s*<thinking>[\\S\\s]+?<\\/thinking>\\s*```|<thinking>[\\S\\s]+?<\\/thinking>|<!--[\\S\\s]+?-->/gi",
     "replaceString": "",
     "trimStrings": [],
     "placement": [
