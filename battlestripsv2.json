@@ -6,27 +6,12 @@
     "injectInput": false,
     "qrList": [
         {
-            "id": 2,
+            "id": 1,
             "label": "init",
             "title": "",
             "message": "/echo Initializing |\n/if left={{lastMessageId}} right=0 rule=neq \"/abort\" |\n/echo May freeze momentarily, please wait |\n/delay 100 |\n/setvar key=girlname Default |\n\n/setvar key=usergridcolor #2d4d4f |\n/setvar key=chargridcolor #462b3c |\n/setvar key=hitgridcolor #bb2147 |\n/setvar key=missgridcolor #8a9396 |\n/setvar key=board user |\n/setvar key=chartargetcount 0 |\n/setvar key=gameover false |\n/setvar key=battle false |\n/setvar key=blocktrigger false |\n/setvar key=validgirlinfo true |\n\n/setvar key=gridtonum index=A1 0 |\n/setvar key=gridtonum index=a1 0 |\n/setvar key=gridtonum index=A2 1 |\n/setvar key=gridtonum index=a2 1 |\n/setvar key=gridtonum index=A3 2 |\n/setvar key=gridtonum index=a3 2 |\n/setvar key=gridtonum index=A4 3 |\n/setvar key=gridtonum index=a4 3 |\n/setvar key=gridtonum index=A5 4 |\n/setvar key=gridtonum index=a5 4 |\n/setvar key=gridtonum index=B1 5 |\n/setvar key=gridtonum index=b1 5 |\n/setvar key=gridtonum index=B2 6 |\n/setvar key=gridtonum index=b2 6 |\n/setvar key=gridtonum index=B3 7 |\n/setvar key=gridtonum index=b3 7 |\n/setvar key=gridtonum index=B4 8 |\n/setvar key=gridtonum index=b4 8 |\n/setvar key=gridtonum index=B5 9 |\n/setvar key=gridtonum index=b5 9 |\n/setvar key=gridtonum index=C1 10 |\n/setvar key=gridtonum index=c1 10 |\n/setvar key=gridtonum index=C2 11 |\n/setvar key=gridtonum index=c2 11 |\n/setvar key=gridtonum index=C3 12 |\n/setvar key=gridtonum index=c3 12 |\n/setvar key=gridtonum index=C4 13 |\n/setvar key=gridtonum index=c4 13 |\n/setvar key=gridtonum index=C5 14 |\n/setvar key=gridtonum index=c5 14 |\n/setvar key=gridtonum index=D1 15 |\n/setvar key=gridtonum index=d1 15 |\n/setvar key=gridtonum index=D2 16 |\n/setvar key=gridtonum index=d2 16 |\n/setvar key=gridtonum index=D3 17 |\n/setvar key=gridtonum index=d3 17 |\n/setvar key=gridtonum index=D4 18 |\n/setvar key=gridtonum index=d4 18 |\n/setvar key=gridtonum index=D5 19 |\n/setvar key=gridtonum index=d5 19 |\n/setvar key=gridtonum index=E1 20 |\n/setvar key=gridtonum index=e1 20 |\n/setvar key=gridtonum index=E2 21 |\n/setvar key=gridtonum index=e2 21 |\n/setvar key=gridtonum index=E3 22 |\n/setvar key=gridtonum index=e3 22 |\n/setvar key=gridtonum index=E4 23 |\n/setvar key=gridtonum index=e4 23 |\n/setvar key=gridtonum index=E5 24 |\n/setvar key=gridtonum index=e5 24 |\n\n/setvar key=numtogrid index=0 A1 |\n/setvar key=numtogrid index=1 A2 |\n/setvar key=numtogrid index=2 A3 |\n/setvar key=numtogrid index=3 A4 |\n/setvar key=numtogrid index=4 A5 |\n/setvar key=numtogrid index=5 B1 |\n/setvar key=numtogrid index=6 B2 |\n/setvar key=numtogrid index=7 B3 |\n/setvar key=numtogrid index=8 B4 |\n/setvar key=numtogrid index=9 B5 |\n/setvar key=numtogrid index=10 C1 |\n/setvar key=numtogrid index=11 C2 |\n/setvar key=numtogrid index=12 C3 |\n/setvar key=numtogrid index=13 C4 |\n/setvar key=numtogrid index=14 C5 |\n/setvar key=numtogrid index=15 D1 |\n/setvar key=numtogrid index=16 D2 |\n/setvar key=numtogrid index=17 D3 |\n/setvar key=numtogrid index=18 D4 |\n/setvar key=numtogrid index=19 D5 |\n/setvar key=numtogrid index=20 E1 |\n/setvar key=numtogrid index=21 E2 |\n/setvar key=numtogrid index=22 E3 |\n/setvar key=numtogrid index=23 E4 |\n/setvar key=numtogrid index=24 E5 |\n\n/setvar key=userboardhtml <div class='board'> |\n/setvar key=charboardhtml <div class='board'> |\n/setvar key=i 0 |\n/times 25 \"/run battlestripsv2.initgrid\" |\n/addvar key=userboardhtml </div> |\n/addvar key=charboardhtml </div> |\n\n/setvar key=arr {{getvar::numtogrid}} |\n/run creamsan.shuffle |\n/setvar key=charshots",
             "contextList": [],
-            "preventAutoExecute": false,
-            "isHidden": true,
-            "executeOnStartup": false,
-            "executeOnUser": false,
-            "executeOnAi": false,
-            "executeOnChatChange": false,
-            "executeOnGroupMemberDraft": false,
-            "automationId": ""
-        },
-        {
-            "id": 12,
-            "label": "initgrid",
-            "title": "",
-            "message": "/getvar index={{getvar::i}} numtogrid |\n/setvar key=grid |\n\n/setvar key=userboard index={{getvar::i}} |\n/setvar key=charboard index={{getvar::i}} |\n\n/addvar key=userboardhtml <div class='grid user user{{getvar::i}}'>\n{{pipe}}\n</div> |\n\n/addvar key=charboardhtml <div class='grid char char{{getvar::i}}'>\n{{getvar::grid}}\n</div> |\n\n/addvar key=i 1",
-            "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -37,11 +22,11 @@
         },
         {
             "id": 3,
-            "label": "userprocess",
+            "label": "initgrid",
             "title": "",
-            "message": "/setvar key=userinput {{input}} |\n/setvar key=jbout - |\n\n/if left=gameover right=true rule=eq \"/abort\" |\n\n/setvar key=jbout NOBODY is playing yet, so avoid writing anyone losing clothes. Include the following code block at the end of the response to resume the game: ```\nRESUME GAME\n``` |\n\n/if left={{lastMessageId}} right=0 rule=eq \"/run battlestripsv2.getuserinfo \\|\n/setvar key=jbout Write a vivid introduction scene ONLY for the girl, and then include her info in the code block: ```\nName: Her name\nDescription: Her description\nClothes: Her list of clothes in array form. Always include her underwear. Example: [black crop top, skinny jeans, canvas shoes, black bra, black panties]\n```\nNOBODY is playing yet, so avoid writing anyone losing clothes.\" |\n\n/if left={{lastMessageId}} right=2 rule=eq \"/run battlestripsv2.getgirlinfo\" |\n/if left=validgirlinfo right=false rule=eq \"/echo Her info is invalid or incomplete \\| /setvar key=blocktrigger true\" |\n\n/run battlestripsv2.resumegame |\n\n/if left=battle right=true rule=eq \"/run battlestripsv2.battleloop \\| /setvar key=battle false\" |\n\n/flushvar nadanada",
+            "message": "/getvar index={{getvar::i}} numtogrid |\n/setvar key=grid |\n\n/setvar key=userboard index={{getvar::i}} |\n/setvar key=charboard index={{getvar::i}} |\n\n/addvar key=userboardhtml <div class='grid user user{{getvar::i}}'>\n{{pipe}}\n</div> |\n\n/addvar key=charboardhtml <div class='grid char char{{getvar::i}}'>\n{{getvar::grid}}\n</div> |\n\n/addvar key=i 1",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -51,12 +36,27 @@
             "automationId": ""
         },
         {
-            "id": 4,
+            "id": 5,
+            "label": "userprocess",
+            "title": "",
+            "message": "/setvar key=userinput {{input}} |\n/setvar key=jbout - |\n\n/if left=gameover right=true rule=eq \"/abort\" |\n\n/setvar key=jbout NOBODY is playing yet, so avoid writing anyone losing clothes. Include the following code block at the end of the response to resume the game: ```\nRESUME GAME\n``` |\n\n/if left={{lastMessageId}} right=0 rule=eq \"/run battlestripsv2.getuserinfo \\|\n/setvar key=jbout Write a vivid introduction scene ONLY for the girl, and then include her info in the code block: ```\nName: Her name\nDescription: Her description\nClothes: Her list of clothes in array form. Always include her underwear. Example: [black crop top, skinny jeans, canvas shoes, black bra, black panties]\n```\nNOBODY is playing yet, so avoid writing anyone losing clothes.\" |\n\n/if left={{lastMessageId}} right=2 rule=eq \"/run battlestripsv2.getgirlinfo\" |\n/if left=validgirlinfo right=false rule=eq \"/echo Her info is invalid or incomplete \\| /setvar key=blocktrigger true\" |\n\n/run battlestripsv2.resumegame |\n\n/if left=battle right=true rule=eq \"/run battlestripsv2.battleloop \\| /setvar key=battle false\" |\n\n/flushvar nadanada",
+            "contextList": [],
+            "preventAutoExecute": true,
+            "isHidden": true,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
+        },
+        {
+            "id": 7,
             "label": "aiprocess",
             "title": "",
             "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -66,12 +66,12 @@
             "automationId": ""
         },
         {
-            "id": 5,
+            "id": 9,
             "label": "Send",
             "title": "",
             "message": "/run battlestripsv2.userprocess | /if left=blocktrigger right=true rule=eq else=\"/send {{getvar::userinput}}{{newline}}{{pipe}} \\| /trigger\" \"/setvar key=blocktrigger false\" | /flushvar nadanada | /setinput",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": false,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -81,12 +81,12 @@
             "automationId": ""
         },
         {
-            "id": 8,
+            "id": 11,
             "label": "dispboard",
             "title": "",
             "message": "/if left=board right=user rule=eq \"/run battlestripsv2.charselecttarget\" |\n/if left=looping right=false rule=eq \"/abort\" |\n\n/input <div class='maincont'>\n<style>\n.user{background-color: {{getvar::usergridcolor}}\n}\n.char{background-color: {{getvar::chargridcolor}}\n}\n.MISS{background-color: {{getvar::missgridcolor}}\n}\n.HIT{background-color: {{getvar::hitgridcolor}}\n}\n.maincont{display: flex;\nflex-direction: column;\npadding: 5px;\nwidth: 400px;\ngap: 10px\n}\n.board{padding: 1px;\nborder: 1px solid green;\ndisplay: inline-grid;\ngap: 1px;\ngrid-template-columns: 1fr 1fr 1fr 1fr 1fr\n}\n.grid{border: 1px solid white;\nborder-radius: 2px;\nwidth: 35px;\nheight: 35px;\ndisplay: flex;\njustify-content: center;\nalign-items: center;\npadding: 1px;\nfont-size: 10px\n}\n.info{width: 40%;\nfont-size: 10px;\ntext-wrap: wrap\n}\n.playercont{display: flex;\ntext-align: left;\njustify-content: center;\ngap: 5px\n}\n</style>\n\n<div class='playercont'>\n{{getvar::charboardhtml}}\n<div class='info'>\n<b>{{getvar::girlname}}'s board</b><br>\n<hr>\nYour last shot: {{getvar::userlast}}\n</div>\n</div>\n\n<div class='playercont'>\n{{getvar::userboardhtml}}\n<div class='info'>\n<b>Your board</b><br>\n<hr>\nHer last shot: {{getvar::charlast}}\n</div>\n</div>\n\n</div>\n\n<div style='text-align: left; font-size: 10px; color: grey'>\nInput target grid. Ex: D3 or a4<br>\nInput <font color=red>giveup</font> to end the game.\n</div> |\n\n/setvar key=tmpinputgrid |\n\n/if left=tmpinputgrid right=giveup rule=eq \"/run battlestripsv2.giveup \\| /abort\" |\n\n/if left=board right=char rule=eq \"/run battlestripsv2.validateinput\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -96,12 +96,12 @@
             "automationId": ""
         },
         {
-            "id": 26,
+            "id": 13,
             "label": "battleloop",
             "title": "",
             "message": "/setvar key=looping true |\n\n/while left=looping right=true rule=eq \"/run battlestripsv2.dispboard\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -111,12 +111,12 @@
             "automationId": ""
         },
         {
-            "id": 20,
+            "id": 15,
             "label": "validateinput",
             "title": "",
             "message": "/setvar key=startregex (?=[a-e][1-5]) |\n/setvar key=endregex (?<=[a-e][1-5]) |\n/setvar key=tomsgprocess {{getvar::tmpinputgrid}} |\n/run creamsan.regextract | /setvar key=inputgrid |\n\n/setvar key=varname inputgrid |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo Invalid input \\| /abort\" |\n\n/getvar index={{getvar::inputgrid}} gridtonum |\n/setvar key=inputgrid |\n\n/run battlestripsv2.playerturn |\n/setvar key=userlast {{getvar::tmpinputgrid}}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -126,12 +126,12 @@
             "automationId": ""
         },
         {
-            "id": 22,
+            "id": 17,
             "label": "playerturn",
             "title": "",
             "message": "/if left=board right=user rule=eq else=\"/setvar key=namedisp {{user}} \\| /setvar key=namedisp2 {{getvar::girlname}}\" \"/setvar key=namedisp {{getvar::girlname}} \\| /setvar key=namedisp2 {{user}}\" |\n\n/pass {{getvar::board}}board |\n/getvar index={{getvar::inputgrid}} {{pipe}} | /setvar key=gridlabel |\n\n/if left=misshit right=gridlabel rule=in \"/echo The target grid has already been selected. \\| /abort\" |\n\n/if left=\"{{getvar::board}}targets\" right=gridlabel rule=in else=\"/echo {{getvar::namedisp}} missed \\|\n/setvar key=class MISS\"\n\"/echo severity=warning {{getvar::namedisp}} sunk one of {{getvar::namedisp2}}'s clothes \\|\n/setvar key=class HIT \\|\n/run battlestripsv2.hitplayer \\|\n/setvar key=looping false\" |\n\n/setvar key=\"{{getvar::board}}board\" index={{getvar::inputgrid}} {{getvar::class}} |\n\n/setvar key=regexflags gi |\n/setvar key=regex \\b{{getvar::board}}{{getvar::inputgrid}}\\b\\|\\b{{getvar::tmpinputgrid}}\\b |\n/setvar key=toreplace {{getvar::class}} |\n/pass {{getvar::board}}boardhtml |\n/getvar {{pipe}} |\n/regex name=regexreplace |\n/setvar key=\"{{getvar::board}}boardhtml\" |\n\n/if left=board right=user rule=eq else=\"/setvar key=board user\" \"/setvar key=board char\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -141,12 +141,12 @@
             "automationId": ""
         },
         {
-            "id": 28,
+            "id": 19,
             "label": "charselecttarget",
             "title": "",
             "message": "/getvar index={{getvar::chartargetcount}} charshots | /setvar key=tmpinputgrid |\n\n/getvar index={{getvar::tmpinputgrid}} gridtonum |\n/setvar key=inputgrid |\n\n/run battlestripsv2.playerturn |\n\n/addvar key=chartargetcount 1 |\n/setvar key=charlast {{getvar::tmpinputgrid}}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -156,12 +156,12 @@
             "automationId": ""
         },
         {
-            "id": 30,
+            "id": 21,
             "label": "getgirlinfo",
             "title": "",
             "message": "/echo Setting up her grids, please wait |\n/delay 100 |\n/setvar key=toadd char |\n/setvar key=validgirlinfo true |\n/setvar key=tomsgprocess {{lastMessage}} |\n/setvar key=endregex (\\n[\\S\\s]+?[:\\-]\\s\\|\\n(?<=[\\S\\s]+?[:\\-][\\S\\s]+)```) |\n\n/setvar key=startregex name\\s?[:\\-]\\s |\n/run creamsan.regextract | /setvar key=girlname |\n/setvar key=varname girlname |\n/run creamsan.isvardefined | /setvar key=validgirlinfo |\n/if left=validgirlinfo right=false rule=eq \"/abort\" |\n\n/setvar key=startregex description\\s?[:\\-]\\s |\n/run creamsan.regextract | /setvar key=girldesc |\n/setvar key=varname girldesc |\n/run creamsan.isvardefined | /setvar key=validgirlinfo |\n/if left=validgirlinfo right=false rule=eq \"/abort\" |\n\n/setvar key=startregex clothes\\s?[:\\-]\\s |\n/run creamsan.regextract | /setvar key=girlclothesraw |\n/setvar key=varname girlclothesraw |\n/run creamsan.isvardefined | /setvar key=validgirlinfo |\n/if left=validgirlinfo right=false rule=eq \"/abort\" |\n\n/run battlestripsv2.gentargets",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -171,12 +171,12 @@
             "automationId": ""
         },
         {
-            "id": 42,
+            "id": 23,
             "label": "getuserinfo",
             "title": "",
             "message": "/echo Setting up your grids, please wait |\n/delay 100 |\n/setvar key=toadd user |\n/run battlestripsv2.gentargets",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -186,12 +186,12 @@
             "automationId": ""
         },
         {
-            "id": 36,
+            "id": 25,
             "label": "gentargets",
             "title": "",
             "message": "/setvar key=tomsgprocess {{lastMessage}} |\n/setvar key=startregex \\[\\s*\"?\\s* |\n/setvar key=endregex (,\\s*\"?\\|\\s*\"?\\s*\\]) |\n/run creamsan.shuffle | /setvar key=targetsbase |\n\n/setvar key=i 0 |\n/setvar key=looping true |\n/while left=looping right=true rule=eq \"/run battlestripsv2.addtarget\" |\n\n/if left=toadd right=user rule=eq else=\"/echo {{getvar::girlname}}'s grids have been successfully generated.\" \"/echo Your grids have been successfully generated.\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -201,12 +201,12 @@
             "automationId": ""
         },
         {
-            "id": 38,
+            "id": 27,
             "label": "addtarget",
             "title": "",
             "message": "/run creamsan.regextract | /setvar key=clothing |\n/setvar key=varname clothing |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/setvar key=looping false \\| /abort\" |\n\n/flushvar toreplace |\n/setvar key=regex \\[[^,]+?\\]\\|(?<=\\[\\s*){{getvar::clothing}},\\s* |\n/setvar key=regexflags i |\n/regex name=regexreplace {{getvar::tomsgprocess}} |\n/setvar key=tomsgprocess |\n\n/setvar key=\"{{getvar::toadd}}clothes\" index={{getvar::i}} {{getvar::clothing}} |\n/getvar index={{getvar::i}} targetsbase |\n/setvar key=\"{{getvar::toadd}}targets\" index={{getvar::i}} |\n\n/if left=toadd right=user rule=eq \"/setvar key=regex {{pipe}} \\|\n/setvar key=toreplace {{pipe}}🛥️ \\|\n/regex name=regexreplace {{getvar::userboardhtml}} \\|\n/setvar key=userboardhtml\" |\n\n/addvar key=i 1",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -216,12 +216,12 @@
             "automationId": ""
         },
         {
-            "id": 44,
+            "id": 29,
             "label": "hitplayer",
             "title": "",
             "message": "/setvar key=topopidx 0 |\n/pass {{getvar::board}}clothes |\n/getvar {{pipe}} |\n/setvar key=arr |\n/run creamsan.pop |\n/setvar key=\"{{getvar::board}}clothes\" |\n/setvar key=clothes |\n/setvar key=clothing {{getvar::popval}} |\n/setvar key=jbout - After some exchange of shots, with a few misses here and there, {{getvar::namedisp}} sinks one of {{getvar::namedisp2}}'s clothes at grid coordinate {{getvar::tmpinputgrid}}.\n- {{getvar::namedisp2}}'s {{getvar::clothing}} magically disappears.\n- {{getvar::namedisp2}}'s remaining clothing: {{getvar::clothes}}\n- Vividly narrate this scene and {{getvar::girlname}}'s reaction. |\n\n/setvar key=varname clothes |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/run battlestripsv2.announcewinner\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -231,12 +231,12 @@
             "automationId": ""
         },
         {
-            "id": 46,
+            "id": 31,
             "label": "announcewinner",
             "title": "",
             "message": "/setvar key=gameover true |\n/echo severity=warning {{getvar::namedisp}} wins! |\n/setvar key=jbout {{getvar::jbout}}\n- {{getvar::namedisp2}} has no more clothes remaining.\n- {{getvar::namedisp}} is the winner.",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -246,12 +246,12 @@
             "automationId": ""
         },
         {
-            "id": 48,
+            "id": 33,
             "label": "giveup",
             "title": "",
             "message": "/setvar key=looping false |\n/setvar key=gameover true |\n/echo severity=error Game over |\n/setvar key=jbout - {{user}} gives up.\n- All his clothes magically disappear.\n- {{getvar::girlname}} is the winner.",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -261,12 +261,12 @@
             "automationId": ""
         },
         {
-            "id": 50,
+            "id": 35,
             "label": "resumegame",
             "title": "",
             "message": "/setvar key=tomsgprocess {{lastMessage}} |\n/setvar key=startregex ```\\s* |\n/setvar key=endregex \\s*``` |\n/run creamsan.regextract |\n/if left={{pipe}} right=\"resume game\" rule=in \"/setvar key=battle true\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -276,5 +276,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 51
+    "idIndex": 36
 }

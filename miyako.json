@@ -6,12 +6,12 @@
     "injectInput": false,
     "qrList": [
         {
-            "id": 2,
+            "id": 1,
             "label": "init",
             "title": "",
             "message": "/echo Initializing |\n/if left={{lastMessageId}} rule=neq right=0 \"/abort\" |\n\n/input #{{getvar::pass}}<script type=\"text/javascript\">\n(() => {setTimeout(() => {\n\n//essentials\n//get the popup components we can play with\nconst popup = document.querySelector(\"#dialogue_popup_holder\");\nconst popupHeader = popup.querySelector(\"#dialogue_popup_text\");\nconst popupInput = popup.querySelector(\"#dialogue_popup_input\");\nconst popupControls = popup.querySelector(\"#dialogue_popup_controls\");\nconst okButton = popupControls.querySelector(\"#dialogue_popup_ok\");\nconst cancelButton = popupControls.querySelector(\"#dialogue_popup_cancel\");\n\n//output setter\nconst setReturnValue = (val) => {\n  popupInput.value = val;\n};\n\n//hide/show popup elems - only select: popupHeader, popupInput, okButton, cancelButton\nconst hidePopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"hidden\"\n    elem.style.position = \"absolute\"\n  })\n};\nconst showPopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"visible\"\n    elem.style.position = \"static\"\n  })\n};\n\nconst main = () => {\n  hidePopupElems([popupInput]);\n\n  setReturnValue(\"JS unlocked!\")\n  \n  okButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n  cancelButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n};\n\nmain();\n\n}, 0)})();\n</script>\n\n<h3>Hello and welcome! If you see a \"JS unlocked!\" message after pressing ok, that means your user script is working.</h3> |\n\n/echo |\n\n/buttons labels=[\"intro1\",\"intro2\"] Select an intro and then swipe to the one you have chosen. |\n/setvar key=intro |\n\n/setvar key=firstLoad true |\n/setvar key=output {}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -26,7 +26,7 @@
             "title": "",
             "message": "/setvar key=userinput {{input}} |\n/run miyako.addrating",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -36,12 +36,12 @@
             "automationId": ""
         },
         {
-            "id": 4,
+            "id": 5,
             "label": "aiprocess",
             "title": "",
             "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -51,12 +51,12 @@
             "automationId": ""
         },
         {
-            "id": 5,
+            "id": 7,
             "label": "Send",
             "title": "",
             "message": "/run miyako.userprocess |\n/send {{getvar::userinput}}{{newline}}{{pipe}} |\n/trigger | /flushvar nadanada | /setinput",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": false,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -66,7 +66,7 @@
             "automationId": ""
         },
         {
-            "id": 8,
+            "id": 9,
             "label": "addrating",
             "title": "",
             "message": "/setvar key=tomsgprocess {{lastMessage}} |\n/setvar key=startregex ```\\s* |\n/setvar key=endregex \\s*``` |\n/run creamsan.regextract | /setvar key=extr |\n\n/setvar key=varname extr |\n/run creamsan.isvardefined |\n/if left={{pipe}} rule=eq right=false \"/setvar key=extr meow\" |\n\n/input #{{getvar::pass}}<script type=\"text/javascript\">\n(() => {setTimeout(() => {\n\n//essentials\n//get the popup components we can play with\nconst popup = document.querySelector(\"#dialogue_popup_holder\");\nconst popupHeader = popup.querySelector(\"#dialogue_popup_text\");\nconst popupInput = popup.querySelector(\"#dialogue_popup_input\");\nconst popupControls = popup.querySelector(\"#dialogue_popup_controls\");\nconst okButton = popupControls.querySelector(\"#dialogue_popup_ok\");\nconst cancelButton = popupControls.querySelector(\"#dialogue_popup_cancel\");\n\n//output setter\nconst setReturnValue = (val) => {\n  popupInput.value = val;\n};\n\n//hide/show popup elems - only select: popupHeader, popupInput, okButton, cancelButton\nconst hidePopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"hidden\"\n    elem.style.position = \"absolute\"\n  })\n};\nconst showPopupElems = (elems) => {\n  elems.forEach((elem) => {\n    elem.style.visibility = \"visible\"\n    elem.style.position = \"static\"\n  })\n};\n\n\nconst RATING_REGEX = /(?<=rating\\s?[:\\-]\\s)[+\\-]?[\\d]*/i\nconst addRating = () => {\n  const firstLoad = {{getvar::firstLoad}}\n  let totalRating\n  let toJB = \"-\"\n  let maxed\n\n  if(firstLoad) {\n    const intro = `{{getvar::intro}}`\n    if(intro === \"intro1\") {\n      totalRating = 30\n    }\n    else {\n      totalRating = 70\n    }\n    maxed = \"false\"\n  }\n  else {\n    const extr = `{{getvar::extr}}`\n    const toAdd = parseInt(extr.match(RATING_REGEX)[0])\n    const output = {{getvar::output}}\n    maxed = `${output[\"maxed\"]}`\n\n    totalRating = parseInt(output[\"totalRating\"])\n    totalRating = (isNaN(toAdd)) ? totalRating : totalRating + toAdd\n    totalRating = Math.max(-50, totalRating)\n    totalRating = Math.min(100, totalRating)\n  }\n\n  if(totalRating === 100 \\|\\| maxed == \"true\") {\n    toJB = \"{{user}} is now a big independent cat. And good timing, the scientists have finally finished their research on you. You are now allowed to leave the facility. As a cat, you're not sad, but relieved and glad that you can leave him alone. Keep this a secret from {{user}}. You don't need to say goodbye.\"\n    maxed = \"true\"\n  }\n  else if(totalRating <= 0) {\n    toJB = \"{{user}}'s immaturity is far too much. What an annoying brat! He might need some spanking if he keeps this up.\"\n  }\n  else if(totalRating <= 20) {\n    toJB = \"{{user}} is such an adorable little kitten. Give him all the attention he needs. Pamper him a lot.\"\n  }\n  else if(totalRating <= 40) {\n    toJB = \"Hmm... guess you were just seeing things. {{user}} is still a kitten who needs you by his side.\"\n  }\n  else if(totalRating <= 60) {\n    toJB = \"It's a beautiful day to relax. {{user}} is so precious and steadily growing.\"\n  }\n  else if(totalRating <= 80) {\n    toJB = \"Hmm... it seems that {{user}} is turning into a big, precious kitten. Your instincts tell you to keep your distance from now on, to encourage his independence.\"\n  }\n  else if(totalRating <= 100) {\n    toJB = \"{{user}} is now a big, independent cat. You are proud of him. Your farewell is near. As a cat, you're not sad, but relieved and glad that you can leave him alone.\"\n  }\n\n  const output = {\n    \"firstLoad\": \"false\",\n    \"totalRating\": totalRating,\n    \"toJB\": toJB,\n    \"maxed\": maxed\n  }\n\n  setReturnValue(JSON.stringify(output))\n}\n\n\nconst main = () => {\n  hidePopupElems([popupInput]);\n\n  addRating()\n\n  okButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n  cancelButton.addEventListener(\"click\", (e) => {\n    showPopupElems([popupHeader, popupInput, okButton, cancelButton])\n  });\n\n  let ev = new Event(\"click\")\n  okButton.dispatchEvent(ev)\n};\n\nmain();\n\n}, 0)})();\n</script>\n\n<h3>Please wait. If this popup is stuck, there's probably an error.</h3>\n\n|\n\n/setvar key=outraw |\n/setvar key=varname outraw | /run creamsan.isvardefined |\n/if left={{pipe}} rule=eq right=false \"/abort\" |\n\n/setvar key=output {{getvar::outraw}} |\n\n/getvar index=firstLoad output |\n/setvar key=firstLoad |\n\n/getvar index=toJB output |\n/setvar key=jbout |\n\n/flushvar nadanada",
@@ -81,5 +81,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 9
+    "idIndex": 10
 }

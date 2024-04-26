@@ -6,12 +6,12 @@
     "injectInput": false,
     "qrList": [
         {
-            "id": 2,
+            "id": 1,
             "label": "init",
             "title": "",
             "message": "/echo Initializing |\n/if left=lvl right=0 rule=gt \"/abort\" |\n\n/buttons labels=[\"Normal\",\"Hard\"] Select difficulty |\n/if left={{pipe}} right=Normal rule=eq else=\"/setvar key=hardmode true\" \"/setvar key=hardmode false\" |\n/if left=hardmode right=true rule=eq else=\"/setvar key=linescale 2 \\| /setvar key=hp 5\" \"/setvar key=linescale 0.2 \\| /setvar key=hp 3\" |\n\n/setvar key=lvl 0 |\n/setvar key=cooldown 2 |\n/setvar key=angle 0 |\n/setvar key=mapw 500 |\n/setvar key=maph 400 | /setvar key=line |\n/setvar key=encounter false |\n\n/setvar key=tanksmoke https://creamsan.neocities.org/files/assets/tanksmoke.gif |\n\n/setvar key=i 0 |\n/times 4 \"/addvar key=i 1 \\| /setvar key=\"tank\\{\\{getvar::i\\}\\}\" https://creamsan.neocities.org/files/assets/tank\\{\\{getvar::i\\}\\}.png \\|\n/setvar key=\"tank\\{\\{getvar::i\\}\\}gun\" https://creamsan.neocities.org/files/assets/tank\\{\\{getvar::i\\}\\}gun.png \\| /setvar key=\"enemy\\{\\{getvar::i\\}\\}smoke\" hidden \\|\n/setvar key=\"enemy\\{\\{getvar::i\\}\\}tank\" hidden\" |\n\n/setvar key=tank1gunxoffset 13 |\n/setvar key=tank1gunyoffset 41 |\n/setvar key=tank1xoffset 18 |\n/setvar key=tank1yoffset 30 |\n\n/setvar key=tank2gunxoffset 13 |\n/setvar key=tank2gunyoffset 25 |\n/setvar key=tank2xoffset 18 |\n/setvar key=tank2yoffset 33 |\n\n/setvar key=tank3gunxoffset 13 |\n/setvar key=tank3gunyoffset 40 |\n/setvar key=tank3xoffset 18 |\n/setvar key=tank3yoffset 33 |\n\n/setvar key=tank4gunxoffset 13 |\n/setvar key=tank4gunyoffset 55 |\n/setvar key=tank4xoffset 18 |\n/setvar key=tank4yoffset 33 |\n\n/setvar key=tanksmokexoffset 100 |\n/setvar key=tanksmokeyoffset 180 |\n\n/setvar index=1 key=chancesnormal 4 |\n/setvar index=2 key=chancesnormal 3 |\n/setvar index=3 key=chancesnormal 8 |\n/setvar index=4 key=chancesnormal 6 |\n/setvar index=5 key=chancesnormal 12 |\n/setvar index=6 key=chancesnormal 9 |\n/setvar index=7 key=chancesnormal 12 |\n/setvar index=8 key=chancesnormal 8 |\n\n/setvar index=1 key=chanceshard 3 |\n/setvar index=2 key=chanceshard 2 |\n/setvar index=3 key=chanceshard 6 |\n/setvar index=4 key=chanceshard 4 |\n/setvar index=5 key=chanceshard 9 |\n/setvar index=6 key=chanceshard 6 |\n/setvar index=7 key=chanceshard 8 |\n/setvar index=8 key=chanceshard 6 |\n\n/setvar index=1 key=lvlenemycount 1 |\n/setvar index=2 key=lvlenemycount 1 |\n/setvar index=3 key=lvlenemycount 2 |\n/setvar index=4 key=lvlenemycount 2 |\n/setvar index=5 key=lvlenemycount 3 |\n/setvar index=6 key=lvlenemycount 3 |\n/setvar index=7 key=lvlenemycount 4 |\n/setvar index=8 key=lvlenemycount 4 |\n\n/setvar key=distances index=0 200 |\n/setvar key=distances index=1 250 |\n/setvar key=distances index=2 300 |\n/setvar key=distances index=3 350 |\n/setvar key=distances index=4 385 |\n\n/setvar key=200 index=maxangle 85 |\n/setvar key=200 index=precision 4 |\n/setvar key=200 index=maxspeed 10 |\n\n/setvar key=250 index=maxangle 50 |\n/setvar key=250 index=precision 3 |\n/setvar key=250 index=maxspeed 5 |\n\n/setvar key=300 index=maxangle 40 |\n/setvar key=300 index=precision 2 |\n/setvar key=300 index=maxspeed 5 |\n\n/setvar key=350 index=maxangle 30 |\n/setvar key=350 index=precision 2 |\n/setvar key=350 index=maxspeed 2 |\n\n/setvar key=385 index=maxangle 25 |\n/setvar key=385 index=precision 1 |\n/setvar key=385 index=maxspeed 2",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -26,7 +26,7 @@
             "title": "",
             "message": "/setvar key=userinput {{input}} |\n/if left=hp right=0 rule=lte \"/setvar key=jbout - \\| /abort\" |\n/if left=lvl right=8 rule=gt \"/setvar key=jbout - \\| /abort\" |\n/setvar key=log Event log: |\n/setvar key=jbout No enemies for now. |\n/if left=cooldown right=0 rule=lte \"/run teamneko.genenemies\" |\n/addvar key=cooldown -1 |\n/run teamneko.detectencounter |\n/if left=encounter right=true rule=eq \"/run teamneko.aimloop \\| /setvar key=cooldown {{random: 0,1}} \\| /setvar key=encounter false\" |\n/flushvar nadanada",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -36,12 +36,12 @@
             "automationId": ""
         },
         {
-            "id": 4,
+            "id": 5,
             "label": "aiprocess",
             "title": "",
             "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -51,12 +51,12 @@
             "automationId": ""
         },
         {
-            "id": 5,
+            "id": 7,
             "label": "Send",
             "title": "",
             "message": "/run teamneko.userprocess |\n/send {{getvar::userinput}}{{newline}}{{pipe}} |\n/trigger | /flushvar nadanada | /setinput",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": false,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -66,12 +66,12 @@
             "automationId": ""
         },
         {
-            "id": 6,
+            "id": 9,
             "label": "aim",
             "title": "",
             "message": "/run teamneko.gethpdisp |\n\n/input <div style='display: flex; gap: 3px; flex-direction: column; justify-content: center; padding: 5px'>\n<style>\n.mapscreen {max-width: {{getvar::mapw}}px;\nheight: {{getvar::maph}}px;\nborder: 1px solid green;\nposition: relative;\noverflow: hidden;\nbackground-image: url('{{getvar::bg}}');\nbackground-position: bottom\n}\n.aimline {border-right: 2px solid red;\nwidth: 2px;\nheight: {{getvar::line}}px;\ntransform-origin: 50% 100%;\nposition: absolute;\nleft: 50%;\ntransform: rotate({{getvar::angle}}deg) scaleY({{getvar::linescale}})\n}\n.tank {box-shadow: 10px 5px 10px 2px rgba(0, 0, 0, 0.5)\n}\n.playertank {transform-origin: {{getvar::tank1xoffset}}px {{getvar::tank1yoffset}}px;\ntransform: translateX(-{{getvar::tank1xoffset}}px) translateY(-{{getvar::tank1yoffset}}px) scale(0.5)\n}\n.playergun {transform-origin: {{getvar::tank1gunxoffset}}px {{getvar::tank1gunyoffset}}px;\ntransform: translateX(-{{getvar::tank1gunxoffset}}px) translateY(-{{getvar::tank1gunyoffset}}px) scale(0.6) rotate({{getvar::angle}}deg)\n}\n.playerpos {position: absolute;\ntop: 99.5%;\nleft: 50%\n}\n\n.enemytank1 {transform-origin: {{getvar::tank1xoffset}}px {{getvar::tank1yoffset}}px;\ntransform: translateX(-{{getvar::tank1xoffset}}px) translateY(-{{getvar::tank1yoffset}}px) scale(0.5) rotate(90deg);\nposition: absolute\n}\n.enemygun1 {transform-origin: {{getvar::tank1gunxoffset}}px {{getvar::tank1gunyoffset}}px;\ntransform: translateX(-{{getvar::tank1gunxoffset}}px) translateY(-{{getvar::tank1gunyoffset}}px) scale(0.5) rotate(180deg);\nposition: absolute\n}\n.enemy1 {position: absolute;\ntop: 100%;\nleft: 50%;\ntransform: rotate({{getvar::enemy1currangle}}deg) translateY(-{{getvar::enemy1dist}}px);\nvisibility: {{getvar::enemy1tank}}\n}\n.tank1smoke {transform-origin: {{getvar::tanksmokexoffset}}px {{getvar::tanksmokeyoffset}}px;\ntransform: translateX(-{{getvar::tanksmokexoffset}}px) translateY(-{{getvar::tanksmokeyoffset}}px) scaleX(0.4) scaleY(0.3) rotate(calc(-1 * {{getvar::enemy1currangle}}deg));\nposition: absolute;\nvisibility: {{getvar::enemy1smoke}}\n}\n\n.enemytank2 {transform-origin: {{getvar::tank2xoffset}}px {{getvar::tank2yoffset}}px;\ntransform: translateX(-{{getvar::tank2xoffset}}px) translateY(-{{getvar::tank2yoffset}}px) scale(0.5) rotate(90deg);\nposition: absolute\n}\n.enemygun2 {transform-origin: {{getvar::tank2gunxoffset}}px {{getvar::tank2gunyoffset}}px;\ntransform: translateX(-{{getvar::tank2gunxoffset}}px) translateY(-{{getvar::tank2gunyoffset}}px) scale(0.5) rotate(180deg);\nposition: absolute\n}\n.enemy2 {position: absolute;\ntop: 100%;\nleft: 50%;\ntransform: rotate({{getvar::enemy2currangle}}deg) translateY(-{{getvar::enemy2dist}}px);\nvisibility: {{getvar::enemy2tank}}\n}\n.tank2smoke {transform-origin: {{getvar::tanksmokexoffset}}px {{getvar::tanksmokeyoffset}}px;\ntransform: translateX(-{{getvar::tanksmokexoffset}}px) translateY(-{{getvar::tanksmokeyoffset}}px) scaleX(0.4) scaleY(0.3) rotate(calc(-1 * {{getvar::enemy2currangle}}deg));\nposition: absolute;\nvisibility: {{getvar::enemy2smoke}}\n}\n\n.enemytank3 {transform-origin: {{getvar::tank3xoffset}}px {{getvar::tank3yoffset}}px;\ntransform: translateX(-{{getvar::tank3xoffset}}px) translateY(-{{getvar::tank3yoffset}}px) scale(0.5) rotate(90deg);\nposition: absolute\n}\n.enemygun3 {transform-origin: {{getvar::tank3gunxoffset}}px {{getvar::tank3gunyoffset}}px;\ntransform: translateX(-{{getvar::tank3gunxoffset}}px) translateY(-{{getvar::tank3gunyoffset}}px) scale(0.5) rotate(180deg);\nposition: absolute\n}\n.enemy3 {position: absolute;\ntop: 100%;\nleft: 50%;\ntransform: rotate({{getvar::enemy3currangle}}deg) translateY(-{{getvar::enemy3dist}}px);\nvisibility: {{getvar::enemy3tank}}\n}\n.tank3smoke {transform-origin: {{getvar::tanksmokexoffset}}px {{getvar::tanksmokeyoffset}}px;\ntransform: translateX(-{{getvar::tanksmokexoffset}}px) translateY(-{{getvar::tanksmokeyoffset}}px) scaleX(0.4) scaleY(0.3) rotate(calc(-1 * {{getvar::enemy3currangle}}deg));\nposition: absolute;\nvisibility: {{getvar::enemy3smoke}}\n}\n\n.enemytank4 {transform-origin: {{getvar::tank4xoffset}}px {{getvar::tank4yoffset}}px;\ntransform: translateX(-{{getvar::tank4xoffset}}px) translateY(-{{getvar::tank4yoffset}}px) scale(0.5) rotate(90deg);\nposition: absolute\n}\n.enemygun4 {transform-origin: {{getvar::tank4gunxoffset}}px {{getvar::tank4gunyoffset}}px;\ntransform: translateX(-{{getvar::tank4gunxoffset}}px) translateY(-{{getvar::tank4gunyoffset}}px) scale(0.5) rotate(180deg);\nposition: absolute\n}\n.enemy4 {position: absolute;\ntop: 100%;\nleft: 50%;\ntransform: rotate({{getvar::enemy4currangle}}deg) translateY(-{{getvar::enemy4dist}}px);\nvisibility: {{getvar::enemy4tank}}\n}\n.tank4smoke {transform-origin: {{getvar::tanksmokexoffset}}px {{getvar::tanksmokeyoffset}}px;\ntransform: translateX(-{{getvar::tanksmokexoffset}}px) translateY(-{{getvar::tanksmokeyoffset}}px) scaleX(0.4) scaleY(0.3) rotate(calc(-1 * {{getvar::enemy4currangle}}deg));\nposition: absolute;\nvisibility: {{getvar::enemy4smoke}}\n}\n\n.info {padding: 3px;\ntext-align: left\n}\n.instruct {width: 70%;\nfont-size: 10px;\nborder: 1px solid green\n}\n.hud {width: 30%;\nborder: 1px solid red\n}\n</style>\n<div class='mapscreen'>\n\n<div class='aimline'></div>\n\n<img class='tank playertank playerpos' src='{{getvar::tank1}}' alt='Img loading failed :('>\n<img class='playergun playerpos' src='{{getvar::tank1gun}}' alt='Img loading failed :('>\n\n<div class='enemy1'>\n<img class='tank enemytank1' src='{{getvar::tank1}}' alt='Img loading failed :('>\n<img class='enemygun1' src='{{getvar::tank1gun}}' alt='Img loading failed :('>\n<img class='tank1smoke' src='{{getvar::tanksmoke}}' alt='Img loading failed :('>\n</div>\n\n<div class='enemy2'>\n<img class='tank enemytank2' src='{{getvar::tank2}}' alt='Img loading failed :('>\n<img class='enemygun2' src='{{getvar::tank2gun}}' alt='Img loading failed :('>\n<img class='tank2smoke' src='{{getvar::tanksmoke}}' alt='Img loading failed :('>\n</div>\n\n<div class='enemy3'>\n<img class='tank enemytank3' src='{{getvar::tank3}}' alt='Img loading failed :('>\n<img class='enemygun3' src='{{getvar::tank3gun}}' alt='Img loading failed :('>\n<img class='tank3smoke' src='{{getvar::tanksmoke}}' alt='Img loading failed :('>\n</div>\n\n<div class='enemy4'>\n<img class='tank enemytank4' src='{{getvar::tank4}}' alt='Img loading failed :('>\n<img class='enemygun4' src='{{getvar::tank4gun}}' alt='Img loading failed :('>\n<img class='tank4smoke' src='{{getvar::tanksmoke}}' alt='Img loading failed :('>\n</div>\n</div>\n\n<div style='display:flex; gap: 3px'>\n<div class='info instruct'>\nEnter the <b>angle</b> to aim. (0 means aim straight, negative values aim left, positive values aim right)<br>\nOnce you have targeted an enemy, enter <b>fire</b> to shoot.<br>\nEnter <font color=red><b>surrender</b></font> to lose and end the game.\n</div>\n<div class='info hud'>\nCurrent angle: {{getvar::angle}}°<br>\nHP: {{getvar::hpdisp}}<br>\nFree turns: {{getvar::chances}}\n</div>\n</div>\n</div> |\n\n/setvar key=tempangle |\n/run teamneko.validateaiminput",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -81,12 +81,12 @@
             "automationId": ""
         },
         {
-            "id": 8,
+            "id": 11,
             "label": "aimloop",
             "title": "",
             "message": "/setvar key=looping true |\n/setvar key=tempangle 0 |\n/setvar key=bg {{random: https://c.tenor.com/0e6lbNV-AEYAAAAd/tenor.gif,\nhttps://opengameart.org/sites/default/files/backgrounddetailed1.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed2.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed3.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed5.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed6.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed7.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed8.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed1.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed2.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed3.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed5.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed6.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed7.png,\nhttps://opengameart.org/sites/default/files/backgrounddetailed8.png}} |\n\n/while left=looping right=true rule=eq \"/run teamneko.aim\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -96,12 +96,12 @@
             "automationId": ""
         },
         {
-            "id": 10,
+            "id": 13,
             "label": "validateaiminput",
             "title": "",
             "message": "/setvar key=validaiminput true |\n/flushvar toreplace |\n/setvar key=regexflags gi |\n\n/setvar key=regex [^a-z\\d-] |\n/regex name=regexreplace {{getvar::tempangle}} |\n/setvar key=tempangle |\n\n/if left=tempangle right=surrender rule=eq \"/setvar key=angle 0 \\| /setvar key=hp 0\" |\n\n/if left=chances right=0 rule=lte \"/run teamneko.rolltakedmg\" |\n\n/if left=hp right=0 rule=lte \"/echo severity=error Your team is eliminated. Game over. \\| /setvar key=looping false \\| /run teamneko.gameover \\| /abort\" |\n\n/if left=tempangle right=fire rule=eq \"/setvar key=enemyprocess hitenemy \\| /setvar key=hitsinarow 0 \\| /run teamneko.scanenemies\" |\n\n/setvar key=regex [^\\d-] |\n/regex name=regexreplace {{getvar::tempangle}} |\n/setvar key=tempangle |\n/setvar key=varname tempangle |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/setvar key=validaiminput false\" |\n\n/if left=validaiminput right=true rule=eq \"/setvar key=angle {{getvar::tempangle}}\" |\n\n/addvar key=chances -1 |\n/max 0 chances | /setvar key=chances |\n\n/setvar key=enemyprocess moveenemy |\n/run teamneko.scanenemies",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -111,12 +111,12 @@
             "automationId": ""
         },
         {
-            "id": 20,
+            "id": 15,
             "label": "hitenemy",
             "title": "",
             "message": "/setvar key=ishit true |\n/addvar key=i 1 |\n\n/pass enemy{{getvar::i}}currangle |\n/getvar {{pipe}} | /setvar key=enemyangle |\n\n/pass enemy{{getvar::i}}dist |\n/getvar {{pipe}} | /pass {{pipe}} |\n/getvar index=precision {{pipe}} | /setvar key=precision |\n/mul -1 precision | /add {{pipe}} enemyangle |\n/setvar key=minanglehit |\n/add precision enemyangle |\n/setvar key=maxanglehit |\n/if left=angle right=minanglehit rule=lt \"/setvar key=ishit false\" |\n/if left=angle right=maxanglehit rule=gt \"/setvar key=ishit false\" |\n/if left=ishit right=false rule=eq \"/abort\" |\n\n/pass enemy{{getvar::i}}smoke |\n/if left={{pipe}} right=hidden rule=eq \"/setvar key=\"enemy{{getvar::i}}smoke\" visible \\| /setvar key=\"enemy{{getvar::i}}speed\" 0 \\| /addvar key=enemyremaining -1 \\| /addvar key=hitsinarow 1 \\| /echo Nice shot!\" |\n\n/if left=hitsinarow right=1 rule=gt \"/setvar key=log {{getvar::log}}{{newline}}- With her luck and skill, {{user}}-chan took out {{getvar::hitsinarow}} tanks in a row with a single shot.\n- Crewmates praise {{user}}-chan.\n- This makes Miki wet her panties.\n- Emi hugs {{user}}-chan in excitement while fondling her boobs and stroking her thighs.\n- Ayame blushes. She keeps stealing glances.\" |\n/if left=enemyremaining right=0 rule=lte \"/run teamneko.winbattle\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -126,12 +126,12 @@
             "automationId": ""
         },
         {
-            "id": 22,
+            "id": 17,
             "label": "gethpdisp",
             "title": "",
             "message": "/flushvar hpdisp |\n/times {{getvar::hp}} \"/addvar key=hpdisp 🛡️\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -141,12 +141,12 @@
             "automationId": ""
         },
         {
-            "id": 12,
+            "id": 19,
             "label": "genenemies",
             "title": "",
             "message": "/if left=lvl right=8 rule=gte \"/abort\" |\n\n/addvar key=lvl 1 |\n/setvar key=enemyprocess resetenemy |\n/run teamneko.scanenemies |\n/setvar key=arr {{getvar::distances}} |\n/run creamsan.shuffle |\n\n/getvar index={{getvar::lvl}} lvlenemycount |\n/setvar key=enemycount | /setvar key=enemyremaining |\n/setvar key=enemyprocess genenemy |\n/run teamneko.scanenemies |\n\n/setvar key=jbout Enemy spotted. Number of enemies: {{getvar::enemycount}}. Prepare for battle. Include the following codeblock in the response: ```\nBEGIN BATTLE\n``` |\n\n/if left=hardmode right=true rule=eq else=\"/getvar index={{getvar::lvl}} chancesnormal \\| /setvar key=chances\" \"/getvar index={{getvar::lvl}} chanceshard \\| /setvar key=chances\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -156,12 +156,12 @@
             "automationId": ""
         },
         {
-            "id": 16,
+            "id": 21,
             "label": "resetenemy",
             "title": "",
             "message": "/addvar key=i 1 |\n/setvar key=\"enemy{{getvar::i}}smoke\" hidden |\n/setvar key=\"enemy{{getvar::i}}tank\" hidden",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -171,12 +171,12 @@
             "automationId": ""
         },
         {
-            "id": 14,
+            "id": 23,
             "label": "genenemy",
             "title": "",
             "message": "/getvar index={{getvar::i}} arr |\n/setvar key=dist | /setvar key=distkey {{pipe}} |\n\n/addvar key=i 1 |\n/setvar key=\"enemy{{getvar::i}}dist\" {{getvar::dist}} |\n\n/getvar index=maxangle {{getvar::distkey}} |\n/setvar key=minmax |\n/rand from=\"-{{getvar::minmax}}\" to={{getvar::minmax}} round=round |\n/setvar key=\"enemy{{getvar::i}}currangle\" |\n\n/getvar index=maxspeed {{getvar::distkey}} |\n/setvar key=minmax |\n/rand from=\"-{{getvar::minmax}}\" to={{getvar::minmax}} round=round |\n/setvar key=\"enemy{{getvar::i}}speed\" |\n\n/setvar key=\"enemy{{getvar::i}}tank\" visible",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -186,12 +186,12 @@
             "automationId": ""
         },
         {
-            "id": 24,
+            "id": 25,
             "label": "rolltakedmg",
             "title": "",
             "message": "/pass {{roll: d3}} |\n/if left={{pipe}} right=2 rule=gte \"/addvar key=hp -1 \\| /max 0 hp \\| /setvar key=hp \\| /setvar key=log {{getvar::log}}{{newline}}- The crew's tank has taken damage during the battle.\n- Miki is angry and wants to shoot more at defeated enemy tanks.\n- Emi pretends to be scared and hugs {{user}}-chan, but grabs her boobs.\n- Ayame continues to drive, but blushes and steals glances. \\| /echo severity=warning You have taken damage.\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -201,12 +201,12 @@
             "automationId": ""
         },
         {
-            "id": 26,
+            "id": 27,
             "label": "gameover",
             "title": "",
             "message": "/popup <div>\n<img style='width: 400px' src='https://files.catbox.moe/iryqpn.jpeg' alt='Img loading failed :('>\n</div> |\n/setvar key=jbout Game over. Their tank has been disabled by their opponent. They are eliminated from the match.",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -216,12 +216,12 @@
             "automationId": ""
         },
         {
-            "id": 28,
+            "id": 29,
             "label": "winbattle",
             "title": "",
             "message": "/setvar key=looping false |\n/setvar key=jbout The team won the battle. They have defeated {{getvar::enemycount}} enemy tank(s). But they still have a long way to go to reunite with the main group.\n\n{{getvar::log}} |\n/echo severity=success You've won the battle. |\n/if left=lvl right=8 rule=gte \"/run teamneko.showendingpopup\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -231,12 +231,12 @@
             "automationId": ""
         },
         {
-            "id": 30,
+            "id": 31,
             "label": "showendingpopup",
             "title": "",
             "message": "/popup <h1>Congratulations</h1>\n<font color=red><img style='width: 400px' src='https://files.catbox.moe/gg7nex.jpeg' alt='Image loading failed :('></font><br><br>\n<hr><br><br>\nThanks for checking out my card. If you've made it this far, it means that the script is working as intended, I really hope so. If you encountered any problems, please let me know.<br>\nFrom this point on you should use the normal send button on the right instead of the QR send button.<br>\n<hr><br><br> |\n/setvar key=jbout The crew survived and managed to rejoin with the main squad. It seems that they also wiped out the opposing teams, so they won the match.\n\n{{getvar::log}}",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -246,12 +246,12 @@
             "automationId": ""
         },
         {
-            "id": 34,
+            "id": 33,
             "label": "moveenemy",
             "title": "",
             "message": "/setvar key=toreverse false |\n/addvar key=i 1 |\n\n/pass enemy{{getvar::i}}speed |\n/getvar {{pipe}} |\n/setvar key=enemyspeed |\n\n/pass enemy{{getvar::i}}dist |\n/getvar {{pipe}} | /pass {{pipe}} |\n/getvar index=maxangle {{pipe}} |\n/setvar key=maxangle |\n\n/pass enemy{{getvar::i}}currangle |\n/getvar {{pipe}} |\n/setvar key=enemyangle |\n/add enemyangle enemyspeed | /setvar key=newangle |\n/if left=newangle right=\"-{{getvar::maxangle}}\" rule=lt \"/setvar key=toreverse true\" |\n/if left=newangle right=maxangle rule=gt \"/setvar key=toreverse true\" |\n/if left=toreverse right=true rule=eq \"/mul -1 enemyspeed \\| /setvar key=\"enemy{{getvar::i}}speed\" \\| /setvar key=enemyspeed \\| /add {{pipe}} enemyangle \\| /setvar key=newangle\" |\n\n/pass enemy{{getvar::i}}smoke |\n/if left={{pipe}} right=hidden rule=eq \"/setvar key=\"enemy{{getvar::i}}currangle\" {{getvar::newangle}}\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -261,12 +261,12 @@
             "automationId": ""
         },
         {
-            "id": 38,
+            "id": 35,
             "label": "scanenemies",
             "title": "",
             "message": "/setvar key=i 0 |\n/times {{getvar::enemycount}} \"/run teamneko.{{getvar::enemyprocess}}\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -276,12 +276,12 @@
             "automationId": ""
         },
         {
-            "id": 40,
+            "id": 37,
             "label": "detectencounter",
             "title": "",
             "message": "/setvar key=tomsgprocess {{lastMessage}} |\n/setvar key=startregex ```\\s* |\n/setvar key=endregex \\s*``` |\n/run creamsan.regextract |\n/if left={{pipe}} right=battle rule=in \"/setvar key=encounter true\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -291,5 +291,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 41
+    "idIndex": 38
 }

@@ -6,12 +6,12 @@
     "injectInput": false,
     "qrList": [
         {
-            "id": 2,
+            "id": 1,
             "label": "init",
             "title": "",
             "message": "/echo Initializing",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -26,7 +26,7 @@
             "title": "",
             "message": "/setvar key=userinput {{input}} |\n/if left=userinput right=1 rule=eq \"/run blanche.addcommand\" |\n/if left=userinput right=2 rule=eq \"/run blanche.addcommand\" |\n/if left=userinput right=3 rule=eq \"/run blanche.addcommand\" |\n/flushvar nadanada",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -36,12 +36,12 @@
             "automationId": ""
         },
         {
-            "id": 4,
+            "id": 5,
             "label": "aiprocess",
             "title": "",
             "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n\n/pass ... |\n/if left={{lastMessage}} rule=eq right={{pipe}} \"/abort\" |\n\n/setvar key=traitsready true",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -51,12 +51,12 @@
             "automationId": ""
         },
         {
-            "id": 5,
+            "id": 7,
             "label": "Send",
             "title": "",
             "message": "/run blanche.userprocess |\n/if left=blocktrigger right=true rule=eq else=\"/send {{getvar::userinput}}{{newline}}{{pipe}} \\| /trigger\" \"/setvar key=blocktrigger false\" | /flushvar nadanada | /setinput",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": false,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -66,12 +66,12 @@
             "automationId": ""
         },
         {
-            "id": 11,
+            "id": 9,
             "label": "addcommand",
             "title": "",
             "message": "/setvar key=blocktrigger true |\n\n/if left=traitsready right=false rule=eq \"/echo Not yet \\| /abort\" |\n/setvar key=endregex (\\n\\d\\s?[:\\-\\.]\\s\\|\\n(?<=\\d\\s?[:\\-\\.][\\S\\s]+)```) |\n/setvar key=tomsgprocess {{lastMessage}} |\n\n/setvar key=startregex (?<=```[\\S\\s]+)1\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc1 |\n/setvar key=varname newdesc1 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/setvar key=startregex (?<=```[\\S\\s]+)2\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc2 |\n/setvar key=varname newdesc2 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/setvar key=startregex (?<=```[\\S\\s]+)3\\s?[:\\-\\.]\\s |\n/run creamsan.regextract | /setvar key=newdesc3 |\n/setvar key=varname newdesc3 |\n/run creamsan.isvardefined |\n/if left={{pipe}} right=false rule=eq \"/echo severity=error Possible traits choices invalid. \\| /abort\" |\n\n/if left=userinput right=1 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc1\\}\\}\" |\n/if left=userinput right=2 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc2\\}\\}\" |\n/if left=userinput right=3 rule=eq \"/setvar key=newdesc \\{\\{getvar::newdesc3\\}\\}\" |\n\n/findentry file=Blanche field=key Blanche |\n/setvar key=uid |\n/getentryfield file=Blanche field=content {{getvar::uid}} |\n/setvar key=desc |\n/addvar key=desc , {{getvar::newdesc}} |\n/setentryfield file=Blanche uid={{getvar::uid}} field=content | /echo Added: {{getvar::newdesc}} |\n/flushvar newdesc | /flushvar newdesc1 | /flushvar newdesc2 | /flushvar newdesc3 |\n/setvar key=traitsready false",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -81,5 +81,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 0
+    "idIndex": 10
 }

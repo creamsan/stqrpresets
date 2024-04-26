@@ -6,12 +6,12 @@
     "injectInput": false,
     "qrList": [
         {
-            "id": 2,
+            "id": 1,
             "label": "init",
             "title": "",
             "message": "/echo Initializing |\n\n/if left={{lastMessageId}} rule=neq right=0 \"/abort\" |\n\n/setvar key=pworldsaved false",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -26,7 +26,7 @@
             "title": "",
             "message": "/setvar key=userinput {{input}} |\n\n/if left=pworldsaved rule=eq right=false else=\"/setvar key=world \\{\\{getvar::pworld\\}\\}\" \"/setvar key=pworld \\{\\{getvar::world\\}\\} \\| /setvar key=pworldsaved true\" |\n\n/run websimai.hastextform |\n/if left={{pipe}} rule=eq right=false \"/run websimai.debloathtml\"",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": true,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -36,7 +36,7 @@
             "automationId": ""
         },
         {
-            "id": 4,
+            "id": 5,
             "label": "aiprocess",
             "title": "",
             "message": "/if left={{lastMessageId}} right=0 rule=eq \"/abort\" |\n\n/pass ... |\n/if left={{lastMessage}} rule=eq right={{pipe}} \"/abort\" |\n\n/run websimai.hastextform |\n/if left={{pipe}} rule=eq right=false \"/run websimai.debloathtml\"",
@@ -51,12 +51,12 @@
             "automationId": ""
         },
         {
-            "id": 5,
+            "id": 7,
             "label": "Send",
             "title": "",
             "message": "/run websimai.userprocess |\n/send {{getvar::userinput}}{{newline}}{{pipe}} |\n/trigger | /flushvar nadanada | /setinput",
             "contextList": [],
-            "preventAutoExecute": false,
+            "preventAutoExecute": true,
             "isHidden": false,
             "executeOnStartup": false,
             "executeOnUser": false,
@@ -66,7 +66,7 @@
             "automationId": ""
         },
         {
-            "id": 8,
+            "id": 9,
             "label": "debloathtml",
             "title": "",
             "message": "/flushvar toreplace |\n/setvar key=regexflags gi |\n\n/setvar key=regex <style>[\\S\\s]+?<\\/style>\\|<(?!\\!--\\|\\/?thinking\\|\\/?meter\\|\\/?progress\\|\\/?data\\|\\/?a \\|\\/?img)\\/?[\\S\\s]*?>\\|(?<=\\n)[^\\n\\S]+(?!\\n\\n[^\\s]) |\n/regex name=regexreplace {{lastMessage}} |\n/setvar key=msg |\n\n/setvar key=regexflags gmi |\n/setvar key=regex (?<=<a[^\\n<]+?href=['\"][^\\n<]+?)['\"][\\S\\s]*?> |\n/setvar key=toreplace zz zz |\n/regex name=regexreplace {{getvar::msg}} |\n/setvar key=msg |\n\n/setvar key=regex (?<=<img[^\\n<]+?src=['\"][^\\n<]+?)['\"][\\S\\s]*?>\\|<img[^\\n<]+?src=['\"]\\|<a[^\\n<]+?href=['\"] |\n/regex name=regexreplace {{getvar::msg}} |\n/setvar key=msg |\n\n/setvar key=regex zz |\n/flushvar toreplace |\n/regex name=regexreplace {{getvar::msg}} |\n/setvar key=msg |\n\n/setvar key=regexflags gi |\n/setvar key=regex (?<=[^\\n]\\n)\\n+\\|^\\s+\\|\\s+$ |\n/regex name=regexreplace {{getvar::msg}} |\n/setvar key=msg <details>\n<summary>TEXT FORM</summary>\n{{pipe}}\n</details>\n\n|\n\n/sendas name=\"{{char}}\" |\n/sub {{lastMessageId}} 1 |\n/hide {{pipe}}",
@@ -81,7 +81,7 @@
             "automationId": ""
         },
         {
-            "id": 10,
+            "id": 11,
             "label": "FixCSS",
             "title": "Click this if you see this error in the HTML: CSS ERROR: Error: :1:24: missing '}'",
             "message": "/setvar key=msg {{lastMessage}} |\n\n/flushvar toreplace |\n/setvar key=regexflags gmi |\n/setvar key=regex (?<=<style>[\\S\\s]*?)\\n+(?=[\\S\\s]*?<\\/style>) |\n/regex name=regexreplace {{getvar::msg}} |\n/setvar key=msg |\n\n/sendas name=\"{{char}}\" |\n\n/sub {{lastMessageId}} 1 |\n/cut {{pipe}}",
@@ -96,7 +96,7 @@
             "automationId": ""
         },
         {
-            "id": 18,
+            "id": 13,
             "label": "hastextform",
             "title": "",
             "message": "/setvar key=startregex <summary> |\n/setvar key=endregex </summary> |\n/setvar key=tomsgprocess {{lastMessage}} |\n\n/run creamsan.regextract |\n/if left={{pipe}} rule=in right=\"text form\" else=\"/pass false\" \"/pass true\"",
@@ -111,5 +111,5 @@
             "automationId": ""
         }
     ],
-    "idIndex": 19
+    "idIndex": 14
 }
