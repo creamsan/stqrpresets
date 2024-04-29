@@ -128,7 +128,7 @@
         {
             "id": 7,
             "label": "📜",
-            "title": "",
+            "title": "List variables",
             "message": "/listvar",
             "contextList": [],
             "preventAutoExecute": false,
@@ -154,7 +154,22 @@
             "executeOnChatChange": false,
             "executeOnGroupMemberDraft": false,
             "automationId": ""
+        },
+        {
+            "id": 41,
+            "label": "🖼️",
+            "title": "Display char avatar in the chat",
+            "message": "/comment <img src=\"/characters/{{char}}.png\" alt=\"char avatar\">",
+            "contextList": [],
+            "preventAutoExecute": true,
+            "isHidden": false,
+            "executeOnStartup": false,
+            "executeOnUser": false,
+            "executeOnAi": false,
+            "executeOnChatChange": false,
+            "executeOnGroupMemberDraft": false,
+            "automationId": ""
         }
     ],
-    "idIndex": 40
+    "idIndex": 42
 }

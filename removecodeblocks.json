@@ -1,0 +1,16 @@
+{
+    "scriptName": "removecodeblocks",
+    "findRegex": "/```[\\S\\s]*?```|\\[.*?\\]\\(#'[\\S\\s]+?'\\)/gi",
+    "replaceString": "",
+    "trimStrings": [],
+    "placement": [
+        2
+    ],
+    "disabled": false,
+    "markdownOnly": false,
+    "promptOnly": true,
+    "runOnEdit": false,
+    "substituteRegex": false,
+    "minDepth": 3,
+    "maxDepth": null
+}
