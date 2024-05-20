@@ -54,7 +54,7 @@
             "id": 5,
             "label": "Send",
             "title": "",
-            "message": "/run PRESETNAME.userprocess |\n/send {{getvar::userinput}}{{newline}}{{pipe}} |\n/trigger | /flushvar nadanada | /setinput",
+            "message": "/run PRESETNAME.userprocess |\n/send {{getvar::userinput}}\n{{pipe}} |\n/trigger || /setinput",
             "contextList": [],
             "preventAutoExecute": false,
             "isHidden": true,

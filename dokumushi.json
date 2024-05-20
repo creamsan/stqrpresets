@@ -54,7 +54,7 @@
             "id": 7,
             "label": "Send",
             "title": "",
-            "message": "/run dokumushi.userprocess |\n/send {{getvar::userinput}}{{newline}}{{pipe}} |\n/trigger | /flushvar nadanada | /setinput",
+            "message": "/run dokumushi.userprocess |\n/send {{getvar::userinput}}\n{{pipe}} |\n/trigger || /setinput",
             "contextList": [],
             "preventAutoExecute": true,
             "isHidden": false,
