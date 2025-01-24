@@ -1,6 +1,7 @@
 {
+    "id": "8b8b2558-96d3-4bde-bb6f-3137f1b24909",
     "scriptName": "removecot",
-    "findRegex": "/```\\s*<thinking>[\\S\\s]+?<\\/thinking>\\s*```|<thinking>[\\S\\s]+?<\\/thinking>|<!--[\\S\\s]+?-->/gi",
+    "findRegex": "[<\\[]think(ing)?[>\\]][\\S\\s]+?[<\\[]\\/think(ing)?[>\\]]|```\\s*[<\\[]think(ing)?[>\\]][\\S\\s]+?[<\\[]\\/think(ing)?[>\\]]\\s*```",
     "replaceString": "",
     "trimStrings": [],
     "placement": [
@@ -10,7 +11,7 @@
     "markdownOnly": true,
     "promptOnly": true,
     "runOnEdit": false,
-    "substituteRegex": false,
+    "substituteRegex": 0,
     "minDepth": null,
     "maxDepth": null
 }

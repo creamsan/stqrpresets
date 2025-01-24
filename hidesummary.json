@@ -1,6 +1,7 @@
 {
+    "id": "aa8a0630-3a7c-4005-a55e-f25a29b63bdd",
     "scriptName": "hidesummary",
-    "findRegex": "/^<details>\\s*<summary>[\\S\\s]+?<\\/summary>\\s*|\\s*<\\/details>\\s*$/gi",
+    "findRegex": "/^<details>\\s*<summary>[\\S\\s]*?<\\/summary>\\s*|\\s*<\\/details>\\s*$/gi",
     "replaceString": "",
     "trimStrings": [],
     "placement": [
@@ -10,7 +11,7 @@
     "markdownOnly": false,
     "promptOnly": true,
     "runOnEdit": false,
-    "substituteRegex": false,
+    "substituteRegex": 0,
     "minDepth": null,
     "maxDepth": null
 }
